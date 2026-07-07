@@ -1,0 +1,6 @@
+{
+  "name": "Artes para Bottons e Ímãs",
+  "description": "Landing page para venda de +3.000 artes prontas para bottons e ímãs, com bônus e checkout.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
