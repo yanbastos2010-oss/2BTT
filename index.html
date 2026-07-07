@@ -164,38 +164,6 @@
       .check-white-icon {
         color: #ffffff !important;
       }
-      /* Preloader */
-      #preloader {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-color: #ffffff;
-        z-index: 999999;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        flex-direction: column;
-        transition: opacity 0.5s ease, visibility 0.5s ease;
-      }
-      .spinner {
-        border: 4px solid rgba(0, 0, 0, 0.1);
-        width: 48px;
-        height: 48px;
-        border-radius: 50%;
-        border-left-color: #22c55e;
-        animation: spin 1s linear infinite;
-        margin-bottom: 16px;
-      }
-      @keyframes spin {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
-      }
-      body.loaded #preloader {
-        opacity: 0;
-        visibility: hidden;
-      }
     </style>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
     <script>
@@ -216,10 +184,6 @@
   </head>
 
   <body>
-    <div id="preloader">
-      <div class="spinner"></div>
-      <p class="font-display font-bold text-foreground text-lg">Carregando...</p>
-    </div>
     <!-- Barra Superior -->
     <div class="bg-red-600 text-white py-2.5 px-4 shadow-lg sticky top-0 z-50">
       <div class="container max-w-4xl mx-auto text-center">
@@ -1169,11 +1133,6 @@
             });
           });
         }
-      });
-
-      // Remove preloader on load
-      window.addEventListener('load', () => {
-        document.body.classList.add('loaded');
       });
     </script>
   </body>
