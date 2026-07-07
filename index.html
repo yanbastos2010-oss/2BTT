@@ -1114,23 +1114,19 @@
 
         if (completePlanBtn) {
           completePlanBtn.addEventListener('click', () => {
-            window.open(completeCheckoutUrl, '_blank');
+            window.location.href = completeCheckoutUrl;
           });
         }
 
         if (upsellAcceptBtn) {
           upsellAcceptBtn.addEventListener('click', () => {
-            closeUpsellModal(() => {
-              window.open(upsellCheckoutUrl, '_blank');
-            });
+            window.location.href = upsellCheckoutUrl;
           });
         }
 
         if (upsellDeclineBtn) {
           upsellDeclineBtn.addEventListener('click', () => {
-            closeUpsellModal(() => {
-              window.open(basicCheckoutUrl, '_blank');
-            });
+            window.location.href = basicCheckoutUrl;
           });
         }
       });
