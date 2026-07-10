@@ -986,14 +986,26 @@
             
             video.play().then(() => {
               if (loader) loader.classList.add('hidden');
-              if (soundOff) soundOff.classList.add('hidden');
-              if (soundOn) soundOn.classList.remove('hidden');
+              if (soundOff) {
+                soundOff.classList.add('hidden');
+                soundOff.classList.remove('flex');
+              }
+              if (soundOn) {
+                soundOn.classList.remove('hidden');
+                soundOn.classList.add('flex');
+              }
               startProgressBar();
             }).catch(err => {
               console.log('Autoplay bloqueado com som, iniciando mudo:', err);
               video.muted = true;
-              if (soundOff) soundOff.classList.remove('hidden');
-              if (soundOn) soundOn.classList.add('hidden');
+              if (soundOff) {
+                soundOff.classList.remove('hidden');
+                soundOff.classList.add('flex');
+              }
+              if (soundOn) {
+                soundOn.classList.add('hidden');
+                soundOn.classList.remove('flex');
+              }
               
               video.play().then(() => {
                 if (loader) loader.classList.add('hidden');
@@ -1007,11 +1019,23 @@
           soundBtn.addEventListener('click', () => {
             video.muted = !video.muted;
             if (video.muted) {
-              soundOn.classList.add('hidden');
-              soundOff.classList.remove('hidden');
+              if (soundOn) {
+                soundOn.classList.add('hidden');
+                soundOn.classList.remove('flex');
+              }
+              if (soundOff) {
+                soundOff.classList.remove('hidden');
+                soundOff.classList.add('flex');
+              }
             } else {
-              soundOff.classList.add('hidden');
-              soundOn.classList.remove('hidden');
+              if (soundOff) {
+                soundOff.classList.add('hidden');
+                soundOff.classList.remove('flex');
+              }
+              if (soundOn) {
+                soundOn.classList.remove('hidden');
+                soundOn.classList.add('flex');
+              }
             }
           });
         }
