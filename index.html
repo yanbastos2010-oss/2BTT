@@ -202,12 +202,14 @@
       defer
     ></script>
     <script>
-      window.pixelId = "6a45968210708fd91a289ab9";
-      var a = document.createElement("script");
-      a.setAttribute("async", "");
-      a.setAttribute("defer", "");
-      a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-      document.head.appendChild(a);
+      if (!window.pixelId) {
+        window.pixelId = "6a45968210708fd91a289ab9";
+        var a = document.createElement("script");
+        a.setAttribute("async", "");
+        a.setAttribute("defer", "");
+        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+        document.head.appendChild(a);
+      }
     </script>
   </head>
 
