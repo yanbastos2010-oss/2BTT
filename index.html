@@ -202,13 +202,27 @@
       defer
     ></script>
     <script>
-      if (!window.pixelId) {
-        window.pixelId = "6a45968210708fd91a289ab9";
-        var a = document.createElement("script");
-        a.setAttribute("async", "");
-        a.setAttribute("defer", "");
-        a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
-        document.head.appendChild(a);
+      window.pixelId = "6a45968210708fd91a289ab9";
+
+      // Prevent duplicate script loading. If latest.js is loaded, it automatically
+      // handles appending pixel.js. We only manually append it as a fallback.
+      function initFallbackPixel() {
+        setTimeout(() => {
+          if (!document.querySelector('script[src*="pixel.js"]') && !window.utmifyPixelLoaded) {
+            window.utmifyPixelLoaded = true;
+            var a = document.createElement("script");
+            a.setAttribute("async", "");
+            a.setAttribute("defer", "");
+            a.setAttribute("src", "https://cdn.utmify.com.br/scripts/pixel/pixel.js");
+            document.head.appendChild(a);
+          }
+        }, 1500);
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initFallbackPixel);
+      } else {
+        initFallbackPixel();
       }
     </script>
   </head>
