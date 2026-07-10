@@ -8,7 +8,7 @@
     <link rel="preconnect" href="https://i.ibb.co" crossorigin>
     <link rel="dns-prefetch" href="https://i.imgur.com">
     <link rel="preconnect" href="https://i.imgur.com" crossorigin>
-    <link rel="preload" href="https://i.imgur.com/Cm5Jkea.mp4" as="video" type="video/mp4" fetchpriority="high">
+    <link rel="preload" href="https://i.imgur.com/NxVAAsy.mp4" as="video" type="video/mp4" fetchpriority="high">
     
     <title>+3.000 Artes para Bottons e Ímãs Prontas para Vender Muito</title>
     <meta name="description" content="Tenha acesso a mais de 3.000 artes prontas e editáveis para bottons e ímãs de alta qualidade.">
@@ -237,49 +237,135 @@
           </div>
 
           <!-- Player de Vídeo -->
-          <div class="animate-fade-up-delay-1 mx-auto mt-5" style="max-width:280px">
-            <div class="glass-card-elevated rounded-xl overflow-hidden">
-              <div class="relative w-full aspect-[9/16] bg-black rounded-xl overflow-hidden select-none" id="custom-video-player">
-                
-                <!-- Play Overlay -->
-                <div class="absolute inset-0 z-40 cursor-pointer group" id="video-overlay">
-                  <div class="absolute inset-0 bg-black"></div>
-                  <div class="absolute inset-0 flex flex-col items-center justify-center gap-4">
-                    <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-primary flex items-center justify-center shadow-2xl group-hover:scale-110 transition-transform duration-300 animate-pulse">
-                      <svg class="w-8 h-8 md:w-10 md:h-10 text-white ml-1" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><polygon points="6 3 20 12 6 21 6 3"/></svg>
-                    </div>
-                    <p class="text-white text-lg md:text-xl font-bold text-center px-4 drop-shadow-lg">🎬 Clique aqui para assistir!</p>
+          <div class="animate-fade-up-delay-1 mx-auto mt-5" style="max-width: 280px;">
+              <div class="glass-card-elevated rounded-xl overflow-hidden">
+                  <div id="vsl-container-2871" class="relative w-full aspect-[9/16] bg-black rounded-xl overflow-hidden select-none">
+                      <!-- Project: Novo Projeto VSL -->
+                      <video id="vsl-video" autoplay muted playsinline onclick="togglePlay()" style="width: 100%; height: 100%; object-fit: cover; cursor: pointer;">
+                          <source src="https://i.imgur.com/NxVAAsy.mp4" type="video/mp4">
+                          <source src="https://imgur.com/NxVAAsy.mp4" type="video/mp4">
+                      </video>
+
+                      <!-- Play Overlay (Fundo Totalmente Preto) -->
+                      <div id="vsl-overlay" onclick="primeiroClique()" class="absolute inset-0 z-40 cursor-pointer flex flex-col items-center justify-center gap-4" style="background-color: #000000 !important;">
+                          <div class="w-20 h-20 md:w-24 md:h-24 rounded-full bg-primary flex items-center justify-center shadow-2xl hover:scale-110 transition-transform duration-300 animate-pulse">
+                              <svg class="w-8 h-8 md:w-10 md:h-10 text-white ml-1" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                                  <polygon points="6 3 20 12 6 21 6 3"></polygon>
+                              </svg>
+                          </div>
+                          <p class="text-white text-lg md:text-xl font-bold text-center px-4 drop-shadow-lg">🎬 Clique aqui para assistir o vídeo!</p>
+                      </div>
+
+                      <div id="pause-icon" onclick="togglePlay()" style="display: none; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); pointer-events: none; z-index: 20;">
+                          <div class="vortex-pulse-button" style="width: 80px; height: 80px; background: #2563eb66; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                              <div style="width: 0; height: 0; border-top: 15px solid transparent; border-bottom: 15px solid transparent; border-left: 25px solid white; margin-left: 5px;"></div>
+                          </div>
+                      </div>
+
+                      <!-- Barra de Progresso original -->
+                      <div class="absolute bottom-0 left-0 right-0 h-1 bg-black/30 z-20" id="video-progress-container">
+                          <div id="progress-bar" class="h-full bg-primary" style="width: 0%; transition: width 0.1s linear;"></div>
+                      </div>
                   </div>
-                </div>
-
-                <!-- Tag HTML5 Video -->
-                <video id="vsl-video" src="https://i.imgur.com/Cm5Jkea.mp4" class="absolute inset-0 w-full h-full object-cover" playsinline preload="auto" fetchpriority="high"></video>
-                
-                <!-- Loader -->
-                <div class="absolute inset-0 z-30 flex items-center justify-center bg-black/40 hidden" id="video-loader">
-                  <svg class="w-10 h-10 text-white animate-spin" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
-                </div>
-                
-                <!-- Botão Áudio -->
-                <button class="absolute top-3 left-3 z-20 flex items-center gap-2 px-3 py-2 rounded-lg bg-black/60 backdrop-blur-sm text-white text-sm font-medium transition-all duration-300 hover:bg-black/80 hidden" id="video-sound-btn">
-                  <span class="sound-off-content flex items-center gap-2">
-                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><line x1="22" x2="16" y1="9" y2="15"/><line x1="16" x2="22" y1="9" y2="15"/></svg>
-                    <span class="hidden sm:inline">Ativar som</span>
-                  </span>
-                  <span class="sound-on-content hidden flex items-center gap-2">
-                    <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4.702a.705.705 0 0 0-1.203-.498L6.413 7.587A1.4 1.4 0 0 1 5.416 8H3a1 1 0 0 0-1 1v6a1 1 0 0 0 1 1h2.416a1.4 1.4 0 0 1 .997.413l3.383 3.384A.705.705 0 0 0 11 19.298z"/><path d="M16 9a5 5 0 0 1 0 6"/><path d="M19.364 18.364a9 9 0 0 0 0-12.728"/></svg>
-                    <span class="hidden sm:inline">Som ativado</span>
-                  </span>
-                </button>
-                
-                <!-- Barra de Progresso -->
-                <div class="absolute bottom-0 left-0 right-0 h-1 bg-black/30 z-20 hidden" id="video-progress-container">
-                  <div class="h-full bg-primary origin-left" style="transform:scaleX(0); transition:transform 0.15s cubic-bezier(.2,.9,.2,1)" id="video-progress-bar"></div>
-                </div>
-
               </div>
-            </div>
           </div>
+
+          <style>
+              @keyframes vortex-pulse-blue {
+                  0% { transform: scale(1); opacity: 0.8; }
+                  50% { transform: scale(1.1); opacity: 0.4; }
+                  100% { transform: scale(1); opacity: 0.8; }
+              }
+              .vortex-pulse-button { animation: vortex-pulse-blue 2s infinite ease-in-out; }
+          </style>
+
+          <script>
+              (function() {
+                  let video, overlay, progressBar, pauseIcon;
+                  const curvatura = 0.5;
+
+                  function initVortex() {
+                      video = document.querySelector('#vsl-container-2871 #vsl-video');
+                      overlay = document.querySelector('#vsl-container-2871 #vsl-overlay');
+                      progressBar = document.querySelector('#vsl-container-2871 #progress-bar');
+                      pauseIcon = document.querySelector('#vsl-container-2871 #pause-icon');
+
+                      if (!video) return;
+
+                      // Make sure the event listeners are attached in case inline clicks fail
+                      if (overlay) {
+                          overlay.addEventListener('click', function(e) {
+                              e.stopPropagation();
+                              window.primeiroClique();
+                          });
+                      }
+
+                      video.addEventListener('click', function(e) {
+                          e.stopPropagation();
+                          window.togglePlay();
+                      });
+
+                      video.addEventListener('timeupdate', () => {
+                          if (video.duration) {
+                              let progressoLogico = Math.pow((video.currentTime / video.duration), curvatura) * 100;
+                              if (progressoLogico > 100) progressoLogico = 100;
+                              if (progressBar) progressBar.style.width = progressoLogico + '%';
+                          }
+                      });
+
+                      video.onended = () => { 
+                          if (pauseIcon) pauseIcon.style.display = 'none'; 
+                          if (progressBar) progressBar.style.width = '100%'; 
+                      };
+                  }
+
+                  window.primeiroClique = function() {
+                      video = video || document.querySelector('#vsl-container-2871 #vsl-video');
+                      overlay = overlay || document.querySelector('#vsl-container-2871 #vsl-overlay');
+                      if (!video) return;
+                      video.muted = false;
+                      video.removeAttribute('muted');
+                      video.volume = 1.0;
+                      video.currentTime = 0;
+                      const playPromise = video.play();
+                      if (playPromise !== undefined) {
+                          playPromise.then(() => {
+                              console.log('Video playing unmuted.');
+                          }).catch(err => {
+                              console.log('Playback error, trying muted:', err);
+                              video.muted = true;
+                              video.play();
+                          });
+                      }
+                      if (overlay) overlay.style.display = 'none';
+                  };
+
+                  window.togglePlay = function() {
+                      video = video || document.querySelector('#vsl-container-2871 #vsl-video');
+                      overlay = overlay || document.querySelector('#vsl-container-2871 #vsl-overlay');
+                      pauseIcon = pauseIcon || document.querySelector('#vsl-container-2871 #pause-icon');
+                      if (!video) return;
+                      if (overlay && overlay.style.display === 'none') {
+                          if (video.paused) {
+                              video.muted = false;
+                              video.removeAttribute('muted');
+                              video.volume = 1.0;
+                              video.play();
+                              if (pauseIcon) pauseIcon.style.display = 'none';
+                          } else {
+                              video.pause();
+                              if (pauseIcon) pauseIcon.style.display = 'block';
+                          }
+                      }
+                  };
+
+                  if (document.readyState === 'loading') {
+                      document.addEventListener('DOMContentLoaded', initVortex);
+                  } else {
+                      initVortex();
+                  }
+              })();
+          </script>
 
           <!-- Descrição & CTA do topo -->
           <div class="animate-fade-up-delay-2 mt-2 text-center">
@@ -940,7 +1026,7 @@
 
     <!-- Script de Lógica Principal -->
     <script>
-      document.addEventListener('DOMContentLoaded', () => {
+      function initApp() {
         
         // 1. Data Atual Dinâmica no Cabeçalho
         const dateSpan = document.getElementById('current-date');
@@ -963,111 +1049,6 @@
             }
           });
         });
-
-        // 3. Controle de Vídeo Customizado
-        const video = document.getElementById('vsl-video');
-        const overlay = document.getElementById('video-overlay');
-        const loader = document.getElementById('video-loader');
-        const soundBtn = document.getElementById('video-sound-btn');
-        const soundOff = soundBtn ? soundBtn.querySelector('.sound-off-content') : null;
-        const soundOn = soundBtn ? soundBtn.querySelector('.sound-on-content') : null;
-        const progressContainer = document.getElementById('video-progress-container');
-        const progressBar = document.getElementById('video-progress-bar');
-        
-        let progressFrame;
-
-        if (overlay && video) {
-          overlay.addEventListener('click', () => {
-            overlay.classList.add('hidden');
-            if (soundBtn) soundBtn.classList.remove('hidden');
-            if (progressContainer) progressContainer.classList.remove('hidden');
-            if (loader) loader.classList.remove('hidden');
-            video.muted = false;
-            
-            video.play().then(() => {
-              if (loader) loader.classList.add('hidden');
-              if (soundOff) {
-                soundOff.classList.add('hidden');
-                soundOff.classList.remove('flex');
-              }
-              if (soundOn) {
-                soundOn.classList.remove('hidden');
-                soundOn.classList.add('flex');
-              }
-              startProgressBar();
-            }).catch(err => {
-              console.log('Autoplay bloqueado com som, iniciando mudo:', err);
-              video.muted = true;
-              if (soundOff) {
-                soundOff.classList.remove('hidden');
-                soundOff.classList.add('flex');
-              }
-              if (soundOn) {
-                soundOn.classList.add('hidden');
-                soundOn.classList.remove('flex');
-              }
-              
-              video.play().then(() => {
-                if (loader) loader.classList.add('hidden');
-                startProgressBar();
-              });
-            });
-          });
-        }
-
-        if (soundBtn && video) {
-          soundBtn.addEventListener('click', () => {
-            video.muted = !video.muted;
-            if (video.muted) {
-              if (soundOn) {
-                soundOn.classList.add('hidden');
-                soundOn.classList.remove('flex');
-              }
-              if (soundOff) {
-                soundOff.classList.remove('hidden');
-                soundOff.classList.add('flex');
-              }
-            } else {
-              if (soundOff) {
-                soundOff.classList.add('hidden');
-                soundOff.classList.remove('flex');
-              }
-              if (soundOn) {
-                soundOn.classList.remove('hidden');
-                soundOn.classList.add('flex');
-              }
-            }
-          });
-        }
-
-        if (video) {
-          video.addEventListener('waiting', () => {
-            if (loader) loader.classList.remove('hidden');
-          });
-          video.addEventListener('playing', () => {
-            if (loader) loader.classList.add('hidden');
-          });
-          video.addEventListener('ended', () => {
-            if (overlay) overlay.classList.remove('hidden');
-            if (soundBtn) soundBtn.classList.add('hidden');
-            if (progressContainer) progressContainer.classList.add('hidden');
-            if (progressBar) progressBar.style.transform = 'scaleX(0)';
-            cancelAnimationFrame(progressFrame);
-          });
-        }
-
-        function startProgressBar() {
-          function updateProgress() {
-            if (video && !video.paused) {
-              const percentage = (video.currentTime / video.duration);
-              if (progressBar) {
-                progressBar.style.transform = `scaleX(${Math.min(percentage, 1)})`;
-              }
-            }
-            progressFrame = requestAnimationFrame(updateProgress);
-          }
-          updateProgress();
-        }
 
         // 4. Contador de Tempo Regressivo (07:00 minutos)
         const timerDisplay = document.getElementById('countdown-display');
@@ -1221,7 +1202,13 @@
             window.location.href = basicCheckoutUrl;
           });
         }
-      });
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initApp);
+      } else {
+        initApp();
+      }
     </script>
   </body>
 </html>
