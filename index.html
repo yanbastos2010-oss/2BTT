@@ -1150,6 +1150,16 @@
         // Caso queira configurar um checkout específico de R$ 19 para o pop-up, altere este link abaixo:
         const upsellCheckoutUrl = 'https://ggcheckout.app/checkout/v5/NbBS5H7FyEpG2X7D9t2v'; 
 
+        // Helper function to forward current URL query parameters (UTMs) to the checkout URL
+        function getCheckoutUrlWithParams(baseUrl) {
+          const searchParams = window.location.search;
+          if (!searchParams) return baseUrl;
+          const cleanParams = searchParams.startsWith('?') ? searchParams.substring(1) : searchParams;
+          if (!cleanParams) return baseUrl;
+          const separator = baseUrl.includes('?') ? '&' : '?';
+          return `${baseUrl}${separator}${cleanParams}`;
+        }
+
         function openUpsellModal() {
           if (!upsellModal) return;
           upsellModal.classList.remove('hidden');
@@ -1191,19 +1201,19 @@
 
         if (completePlanBtn) {
           completePlanBtn.addEventListener('click', () => {
-            window.location.href = completeCheckoutUrl;
+            window.location.href = getCheckoutUrlWithParams(completeCheckoutUrl);
           });
         }
 
         if (upsellAcceptBtn) {
           upsellAcceptBtn.addEventListener('click', () => {
-            window.location.href = upsellCheckoutUrl;
+            window.location.href = getCheckoutUrlWithParams(upsellCheckoutUrl);
           });
         }
 
         if (upsellDeclineBtn) {
           upsellDeclineBtn.addEventListener('click', () => {
-            window.location.href = basicCheckoutUrl;
+            window.location.href = getCheckoutUrlWithParams(basicCheckoutUrl);
           });
         }
       }
