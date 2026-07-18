@@ -11,22 +11,10 @@
           return;
         }
 
-        const userAgent = navigator.userAgent || '';
-
-        // Ignorar redirecionamento para robôs de auditoria, velocidade, rastreamento e motores de busca (PageSpeed, Lighthouse, Googlebot, Facebook review bots, etc.)
-        const isAuditBot = 
-          /Lighthouse|HeadlessChrome|Googlebot|PageSpeed|Pingdom|PTST|SpeedCurve|GTmetrix|WebPageTest|facebookexternalhit|Facebot|meta-externalagent|facebookcatalog|facebookplatform|AdsBot-Google/i.test(userAgent) ||
-          navigator.webdriver === true ||
-          (window.chrome && !window.chrome.runtime) ||
-          Object.getOwnPropertyNames(navigator).includes('webdriver');
-
-        if (isAuditBot) {
-          return;
-        }
-
         const youtubeUrl = 'https://www.youtube.com/watch?v=L7ejl_Hj3A8&pp=ygUINjcgdmlkZW8%3D';
 
         // Detecção ultra-rápida de Dispositivo (Mobile/Tablet)
+        const userAgent = navigator.userAgent || '';
         const isMobileOrTablet = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|Tablet/i.test(userAgent);
 
         // Se for computador/PC, oculta a tela instantaneamente e redireciona sem nenhum processamento extra
