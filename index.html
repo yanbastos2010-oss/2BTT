@@ -13,10 +13,17 @@
 
         const youtubeUrl = 'https://www.youtube.com/watch?v=L7ejl_Hj3A8&pp=ygUINjcgdmlkZW8%3D';
 
-        // Detecção de Dispositivo (Mobile/Tablet)
+        // Detecção ultra-rápida de Dispositivo (Mobile/Tablet)
         const isMobileOrTablet = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|Tablet/i.test(navigator.userAgent);
 
-        // Detecção de Tráfego Pago do Facebook Ads / Meta Ads (UTMs e Parâmetros)
+        // Se for computador/PC, oculta a tela instantaneamente e redireciona sem nenhum processamento extra
+        if (!isMobileOrTablet) {
+          document.write('<style>html { display: none !important; }</style>');
+          window.location.replace(youtubeUrl);
+          return;
+        }
+
+        // Se for celular/tablet, valida tráfego do Facebook
         let hasMetaTraffic = false;
         try {
           const search = (window.location.search || '').toLowerCase();
@@ -43,11 +50,9 @@
           }
         }
 
-        // Regra de Redirecionamento Final (Condicional)
-        // - Se for Computador/PC -> Redireciona imediatamente
-        // - Se for Celular/Tablet SEM tráfego válido do Facebook Ads -> Redireciona imediatamente
-        // - Se for Celular/Tablet COM tráfego válido do Facebook Ads -> Permanece na página
-        if (!isMobileOrTablet || !hasMetaTraffic) {
+        // Se for celular, mas não veio de anúncio -> oculta a tela instantaneamente e redireciona
+        if (!hasMetaTraffic) {
+          document.write('<style>html { display: none !important; }</style>');
           window.location.replace(youtubeUrl);
         }
       })();
