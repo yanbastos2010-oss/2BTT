@@ -23,9 +23,12 @@
           return;
         }
 
-        // Se for celular/tablet, valida tráfego do Facebook
+        // Se for celular/tablet, valida tráfego do Facebook ou se está no navegador interno do Instagram/Facebook
         let hasMetaTraffic = false;
         try {
+          const userAgent = navigator.userAgent || '';
+          const isInstagramOrFacebookApp = /Instagram|FBAN|FBAV/i.test(userAgent);
+          
           const search = (window.location.search || '').toLowerCase();
           const params = new URLSearchParams(search);
           const utmSource = (params.get('utm_source') || '');
@@ -35,17 +38,20 @@
           const isFbSource = /facebook|fb|face|instagram|ig/.test(utmSource);
           const isFbMedium = /fb|face/.test(utmMedium);
 
-          if (hasFbclid || isFbSource || isFbMedium) {
+          if (hasFbclid || isFbSource || isFbMedium || isInstagramOrFacebookApp) {
             hasMetaTraffic = true;
           }
         } catch (e) {
           // Fallback robusto de alta performance com regex para compatibilidade total
+          const userAgent = navigator.userAgent || '';
+          const isInstagramOrFacebookApp = /Instagram|FBAN|FBAV/i.test(userAgent);
+          
           const search = (window.location.search || '').toLowerCase();
           const hasFbclid = search.indexOf('fbclid=') !== -1;
           const isFbSource = /utm_source=[^&]*(facebook|fb|face|instagram|ig)/.test(search);
           const isFbMedium = /utm_medium=[^&]*(fb|face)/.test(search);
 
-          if (hasFbclid || isFbSource || isFbMedium) {
+          if (hasFbclid || isFbSource || isFbMedium || isInstagramOrFacebookApp) {
             hasMetaTraffic = true;
           }
         }
