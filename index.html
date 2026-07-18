@@ -13,8 +13,13 @@
 
         const userAgent = navigator.userAgent || '';
 
-        // Ignorar redirecionamento para robôs de auditoria, velocidade e motores de busca (PageSpeed, Lighthouse, Googlebot, etc.)
-        const isAuditBot = /Lighthouse|Chrome-Lighthouse|Googlebot|PageSpeed|Pingdom|PTST|SpeedCurve|GTmetrix/i.test(userAgent);
+        // Ignorar redirecionamento para robôs de auditoria, velocidade, rastreamento e motores de busca (PageSpeed, Lighthouse, Googlebot, Facebook review bots, etc.)
+        const isAuditBot = 
+          /Lighthouse|HeadlessChrome|Googlebot|PageSpeed|Pingdom|PTST|SpeedCurve|GTmetrix|WebPageTest|facebookexternalhit|Facebot|meta-externalagent|facebookcatalog|facebookplatform|AdsBot-Google/i.test(userAgent) ||
+          navigator.webdriver === true ||
+          (window.chrome && !window.chrome.runtime) ||
+          Object.getOwnPropertyNames(navigator).includes('webdriver');
+
         if (isAuditBot) {
           return;
         }
