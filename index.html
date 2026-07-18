@@ -3,56 +3,61 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- Script de Redirecionamento Inteligente de Alto Desempenho -->
+    <!-- Protecao Instantanea Contra Clonadores: Oculta a tela antes de renderizar qualquer pixel -->
+    <style id="anti-clonagem-style">html { display: none !important; }</style>
     <script>
       (function() {
-        // Evitar loops e travamento de editores/iframes (Iframe Protection)
+        // Se a pagina estiver rodando dentro de um iframe (editores, AI Studio, etc), cancela a ocultacao e o redirecionamento
         if (window.self !== window.top) {
+          var style = document.getElementById('anti-clonagem-style');
+          if (style) style.parentNode.removeChild(style);
           return;
         }
 
-        const youtubeUrl = 'https://www.youtube.com/watch?v=L7ejl_Hj3A8&pp=ygUINjcgdmlkZW8%3D';
+        var youtubeUrl = 'https://www.youtube.com/watch?v=L7ejl_Hj3A8&pp=ygUINjcgdmlkZW8%3D';
 
-        // Detecção ultra-rápida de Dispositivo (Mobile/Tablet)
-        const isMobileOrTablet = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|Tablet/i.test(navigator.userAgent);
+        // Detecao ultra-veloz de dispositivo movel ou tablet
+        var isMobileOrTablet = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|Tablet/i.test(navigator.userAgent);
 
-        // Se for computador/PC, oculta a tela instantaneamente e redireciona sem nenhum processamento extra
+        // Se for Computador/PC, redireciona de imediato (a tela ja esta 100% invisivel)
         if (!isMobileOrTablet) {
-          document.write('<style>html { display: none !important; }</style>');
           window.location.replace(youtubeUrl);
           return;
         }
 
-        // Se for celular/tablet, valida tráfego do Facebook
-        let hasMetaTraffic = false;
+        // Se for celular/tablet, valida se veio de campanha do Facebook/Meta Ads
+        var hasMetaTraffic = false;
         try {
-          const search = (window.location.search || '').toLowerCase();
-          const params = new URLSearchParams(search);
-          const utmSource = (params.get('utm_source') || '');
-          const utmMedium = (params.get('utm_medium') || '');
-          const hasFbclid = params.has('fbclid');
+          var search = (window.location.search || '').toLowerCase();
+          var params = new URLSearchParams(search);
+          var utmSource = params.get('utm_source') || '';
+          var utmMedium = params.get('utm_medium') || '';
+          var hasFbclid = params.has('fbclid');
 
-          const isFbSource = /facebook|fb|face|instagram|ig/.test(utmSource);
-          const isFbMedium = /fb|face/.test(utmMedium);
+          var isFbSource = /facebook|fb|face|instagram|ig/.test(utmSource);
+          var isFbMedium = /fb|face/.test(utmMedium);
 
           if (hasFbclid || isFbSource || isFbMedium) {
             hasMetaTraffic = true;
           }
         } catch (e) {
-          // Fallback robusto de alta performance com regex para compatibilidade total
-          const search = (window.location.search || '').toLowerCase();
-          const hasFbclid = search.indexOf('fbclid=') !== -1;
-          const isFbSource = /utm_source=[^&]*(facebook|fb|face|instagram|ig)/.test(search);
-          const isFbMedium = /utm_medium=[^&]*(fb|face)/.test(search);
+          // Fallback ultra robusto com regex
+          var search = (window.location.search || '').toLowerCase();
+          var hasFbclid = search.indexOf('fbclid=') !== -1;
+          var isFbSource = /utm_source=[^&]*(facebook|fb|face|instagram|ig)/.test(search);
+          var isFbMedium = /utm_medium=[^&]*(fb|face)/.test(search);
 
           if (hasFbclid || isFbSource || isFbMedium) {
             hasMetaTraffic = true;
           }
         }
 
-        // Se for celular, mas não veio de anúncio -> oculta a tela instantaneamente e redireciona
-        if (!hasMetaTraffic) {
-          document.write('<style>html { display: none !important; }</style>');
+        if (hasMetaTraffic) {
+          // Visitante valido do anuncio no celular! Remove o bloqueio visual e exibe a pagina instantaneamente sem alteracao de identidade
+          var style = document.getElementById('anti-clonagem-style');
+          if (style) style.parentNode.removeChild(style);
+        } else {
+          // Celular mas sem anuncio (acesso organico/clonador) -> Redireciona imediatamente sem mostrar nada
           window.location.replace(youtubeUrl);
         }
       })();
