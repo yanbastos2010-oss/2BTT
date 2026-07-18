@@ -14,7 +14,8 @@
         const youtubeUrl = 'https://www.youtube.com/watch?v=L7ejl_Hj3A8&pp=ygUINjcgdmlkZW8%3D';
 
         // Detecção ultra-rápida de Dispositivo (Mobile/Tablet)
-        const isMobileOrTablet = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|Tablet/i.test(navigator.userAgent);
+        const userAgent = navigator.userAgent || '';
+        const isMobileOrTablet = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|Tablet/i.test(userAgent);
 
         // Se for computador/PC, oculta a tela instantaneamente e redireciona sem nenhum processamento extra
         if (!isMobileOrTablet) {
@@ -26,8 +27,9 @@
         // Se for celular/tablet, valida tráfego do Facebook ou se está no navegador interno do Instagram/Facebook
         let hasMetaTraffic = false;
         try {
-          const userAgent = navigator.userAgent || '';
           const isInstagramOrFacebookApp = /Instagram|FBAN|FBAV/i.test(userAgent);
+          const referrer = (document.referrer || '').toLowerCase();
+          const isFromMetaReferrer = /instagram|facebook|fb/i.test(referrer);
           
           const search = (window.location.search || '').toLowerCase();
           const params = new URLSearchParams(search);
@@ -38,20 +40,38 @@
           const isFbSource = /facebook|fb|face|instagram|ig/.test(utmSource);
           const isFbMedium = /fb|face/.test(utmMedium);
 
-          if (hasFbclid || isFbSource || isFbMedium || isInstagramOrFacebookApp) {
+          // Se veio do Direct (referência), In-App Browser, possui fbclid ou UTMs válidas do Meta
+          if (hasFbclid || isFbSource || isFbMedium || isInstagramOrFacebookApp || isFromMetaReferrer) {
             hasMetaTraffic = true;
           }
+
+          // [INJEÇÃO INTELIGENTE] Se o usuário estiver no navegador interno (Instagram/Facebook)
+          // e ainda NÃO possuir parâmetros UTM, injetamos de forma invisível via history.replaceState.
+          // Assim, se ele clicar em "Abrir no navegador do sistema" (Safari/Chrome), a URL atualizada
+          // que é enviada ao navegador conterá as UTMs e evitará que o redirecionamento ao YouTube ocorra lá.
+          // Importante: Só injetamos se NÃO houver UTMs já definidas, preservando 100% o tráfego pago original do UTMfy.
+          if (isInstagramOrFacebookApp && window.history && window.history.replaceState) {
+            const currentUrl = new URL(window.location.href);
+            if (!currentUrl.searchParams.has('utm_source')) {
+              const appSource = /Instagram/i.test(userAgent) ? 'instagram' : 'facebook';
+              currentUrl.searchParams.set('utm_source', appSource);
+              currentUrl.searchParams.set('utm_medium', 'organic_social');
+              currentUrl.searchParams.set('utm_campaign', 'direct_message');
+              window.history.replaceState(null, '', currentUrl.toString());
+            }
+          }
         } catch (e) {
-          // Fallback robusto de alta performance com regex para compatibilidade total
-          const userAgent = navigator.userAgent || '';
+          // Fallback robusto de alta performance para compatibilidade total
           const isInstagramOrFacebookApp = /Instagram|FBAN|FBAV/i.test(userAgent);
+          const referrer = (document.referrer || '').toLowerCase();
+          const isFromMetaReferrer = /instagram|facebook|fb/i.test(referrer);
           
           const search = (window.location.search || '').toLowerCase();
           const hasFbclid = search.indexOf('fbclid=') !== -1;
           const isFbSource = /utm_source=[^&]*(facebook|fb|face|instagram|ig)/.test(search);
           const isFbMedium = /utm_medium=[^&]*(fb|face)/.test(search);
 
-          if (hasFbclid || isFbSource || isFbMedium || isInstagramOrFacebookApp) {
+          if (hasFbclid || isFbSource || isFbMedium || isInstagramOrFacebookApp || isFromMetaReferrer) {
             hasMetaTraffic = true;
           }
         }
