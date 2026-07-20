@@ -1238,40 +1238,6 @@
           }
         }
 
-        function trackCheckout() {
-          console.log('Initiating tracking for InitiateCheckout...');
-          
-          // 1. Facebook Pixel (Utmify / Custom Facebook pixel)
-          if (typeof window.fbq === 'function') {
-            try {
-              window.fbq('track', 'InitiateCheckout');
-              console.log('fbq InitiateCheckout tracked.');
-            } catch (err) {
-              console.error('Error tracking fbq InitiateCheckout:', err);
-            }
-          }
-
-          // 2. TikTok Pixel
-          if (typeof window.ttq === 'object' && window.ttq && typeof window.ttq.track === 'function') {
-            try {
-              window.ttq.track('InitiateCheckout');
-              console.log('ttq InitiateCheckout tracked.');
-            } catch (err) {
-              console.error('Error tracking ttq InitiateCheckout:', err);
-            }
-          }
-
-          // 3. Google Analytics / Google Ads (gtag)
-          if (typeof window.gtag === 'function') {
-            try {
-              window.gtag('event', 'begin_checkout');
-              console.log('gtag begin_checkout tracked.');
-            } catch (err) {
-              console.error('Error tracking gtag begin_checkout:', err);
-            }
-          }
-        }
-
         function handleCheckoutRedirect(e, baseUrl) {
           e.preventDefault();
           
@@ -1280,13 +1246,8 @@
           
           const finalUrl = getCheckoutUrlWithParams(baseUrl);
           
-          // Trigger the InitiateCheckout event
-          trackCheckout();
-          
-          // Wait 250ms to allow the pixel requests to complete before navigating
-          setTimeout(() => {
-            window.location.href = finalUrl;
-          }, 250);
+          // Redirect immediately - Utmify automatically tracks checkout button clicks and handles the pixel triggering
+          window.location.href = finalUrl;
         }
 
         function updateAllHrefs() {
