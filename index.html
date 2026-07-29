@@ -4,6 +4,58 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <!-- Script de Redirecionamento Inteligente / Cloaker -->
+    <script>
+      (function() {
+        try {
+          // 1. URL de Destino do Redirecionamento (Apenas Desktop / PC)
+          const destinationUrl = 'https://packartes.vercel.app/';
+
+          // 2. Proteção para Iframe, Visualizadores, Editores e Ambientes de Preview
+          const isIframe = window.self !== window.top;
+          const isDevOrPreview = /ais-dev|ais-pre|run\.app|localhost|127\.0\.0\.1/i.test(window.location.hostname);
+          
+          if (isIframe || isDevOrPreview) {
+            console.log('[Redirect] Ambiente de visualização/iframe detectado. Redirecionamento ignorado.');
+            return;
+          }
+
+          // 3. Detecção de Dispositivo Movel (Celular e Tablet)
+          const ua = navigator.userAgent || navigator.vendor || window.opera;
+          const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobi|Tablet|Mobile|iP(hone|od|ad)/i.test(ua) || 
+                           (navigator.maxTouchPoints && navigator.maxTouchPoints > 1 && /Macintosh/i.test(ua));
+
+          // 4. Se for dispositivo móvel (Celular/Tablet) -> Todos os celulares acessam a página normalmente
+          if (isMobile) {
+            // Preservação e Injeção sutil de UTMs em Navegador Interno do Instagram/Facebook
+            // Apenas injeta se a URL original ainda NÃO tiver nenhum parâmetro de rastreamento
+            const isInApp = /Instagram|FBAN|FBAV/i.test(ua);
+            const hasSearchParams = window.location.search && window.location.search.length > 1;
+
+            if (isInApp && !hasSearchParams) {
+              try {
+                const currentUrl = new URL(window.location.href);
+                currentUrl.searchParams.set('utm_source', 'instagram');
+                currentUrl.searchParams.set('utm_medium', 'organic_social');
+                currentUrl.searchParams.set('utm_campaign', 'direct_message');
+                window.history.replaceState(null, '', currentUrl.toString());
+              } catch (e) {
+                // Silencioso se der erro no replaceState
+              }
+            }
+            return; // Permite visualização no celular
+          }
+
+          // 5. Se for Desktop / PC -> Oculta tela instantaneamente (anti-flicker) e redireciona
+          document.documentElement.style.display = 'none';
+          window.location.replace(destinationUrl);
+
+        } catch (e) {
+          // Falha silenciosa para não travar a aplicação
+        }
+      })();
+    </script>
+
     <link rel="dns-prefetch" href="https://i.ibb.co/">
     <link rel="preconnect" href="https://i.ibb.co" crossorigin>
     <link rel="dns-prefetch" href="https://i.imgur.com">
