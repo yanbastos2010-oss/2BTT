@@ -29,7 +29,6 @@
   --color-section-light-foreground: #0f172a;
   
   --font-display: 'Inter', sans-serif;
-  --font-sans: 'Inter', sans-serif;
   --radius: 0.75rem;
 }
 
@@ -39,7 +38,6 @@
 }
 .animate-float {
   animation: float 6s ease-in-out infinite;
-  will-change: transform;
 }
 
 @keyframes fade-up {
@@ -48,17 +46,14 @@
 }
 .animate-fade-up {
   animation: fade-up 0.8s ease-out forwards;
-  will-change: opacity, transform;
 }
 .animate-fade-up-delay-1 {
   animation: fade-up 0.8s ease-out 0.2s forwards;
   opacity: 0;
-  will-change: opacity, transform;
 }
 .animate-fade-up-delay-2 {
   animation: fade-up 0.8s ease-out 0.4s forwards;
   opacity: 0;
-  will-change: opacity, transform;
 }
 
 @keyframes pulse-slow {
@@ -67,7 +62,6 @@
 }
 .animate-pulse-slow {
   animation: pulse-slow 3s infinite ease-in-out;
-  will-change: transform;
 }
 
 .glass-card-elevated {

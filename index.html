@@ -6,12 +6,13 @@
 
     <link rel="dns-prefetch" href="https://i.ibb.co/">
     <link rel="preconnect" href="https://i.ibb.co" crossorigin>
-    <link rel="preload" href="https://i.ibb.co/dwGSqPkY/Screenshot-2026-06-30-12-15-22-084-com-canva-editor-edit.webp" as="image" type="image/webp" fetchpriority="high">
+    <link rel="dns-prefetch" href="https://i.imgur.com">
+    <link rel="preconnect" href="https://i.imgur.com" crossorigin>
+    <link rel="preload" href="https://i.imgur.com/NxVAAsy.mp4" as="video" type="video/mp4" fetchpriority="high">
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap" rel="stylesheet">
     <link rel="dns-prefetch" href="https://cdn.utmify.com.br">
     <link rel="preconnect" href="https://cdn.utmify.com.br" crossorigin>
     
@@ -23,7 +24,7 @@
 
     <!-- CSS customizado para aplicar a identidade azul #2563EB e estilos específicos -->
     <style>
-      body, button, input, select, textarea, h1, h2, h3, h4, h5, h6, p, span, a { font-family: 'Inter', sans-serif !important; }
+      body { font-family: 'Inter', sans-serif !important; }
       :root {
         --background: 210 40% 98% !important;
         --foreground: 222.2 84% 4.9% !important;
@@ -113,8 +114,6 @@
       .carousel-slides {
         display: flex;
         transition: transform 0.3s ease-in-out;
-        will-change: transform;
-        touch-action: pan-y;
       }
       
       .carousel-slide {
@@ -175,6 +174,7 @@
         color: #ffffff !important;
       }
     </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <script>
       window.pixelId = "6a45968210708fd91a289ab9";
       var a = document.createElement("script");
@@ -222,28 +222,29 @@
   </head>
 
   <body>
-    <!-- Barra Superior de Urgência -->
-    <div class="bg-red-600 text-white py-2.5 px-3 shadow-lg sticky top-0 z-50 text-center">
-      <div class="container max-w-4xl mx-auto">
-        <p class="font-bold text-sm sm:text-base md:text-lg leading-snug tracking-wide uppercase">
-          DESCONTO SÓ HOJE NESSA PÁGINA - <span id="current-date" class="bg-white text-red-600 px-2 py-0.5 rounded font-extrabold inline-block">--/--/----</span>
-        </p>
-      </div>
-    </div>
-
     <main class="min-h-screen">
       
       <!-- Seção Hero -->
-      <section class="bg-gradient-light py-6 md:py-10 relative overflow-hidden">
-        <div class="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-float"></div>
-        <div class="absolute bottom-20 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" style="animation-delay:2s"></div>
-        
-        <div class="container max-w-3xl relative z-10 px-4 mx-auto">
-          <div class="text-center animate-fade-up">
-            <h1 class="font-display text-3xl md:text-4xl lg:text-5xl font-extrabold leading-[1.15] mb-4 text-foreground">
-              +3.000 Artes para <span class="text-gradient-purple">Bottons e Ímãs</span> Prontas
-            </h1>
-            <p class="text-black font-normal text-base md:text-lg lg:text-xl leading-snug mb-4">
+      <section class="bg-gradient-light relative overflow-hidden">
+        <!-- Barra de Urgência na Hero -->
+        <div class="bg-red-600 text-white py-2.5 px-4 shadow-md relative z-20">
+          <div class="container max-w-4xl mx-auto text-center">
+            <p class="font-bold text-xs sm:text-sm md:text-base leading-snug uppercase tracking-wide">
+              DESCONTO SÓ HOJE NESSA PÁGINA - <span id="current-date">--/--/----</span>
+            </p>
+          </div>
+        </div>
+
+        <div class="py-6 md:py-10 relative">
+          <div class="absolute top-0 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-float"></div>
+          <div class="absolute bottom-0 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" style="animation-delay:2s"></div>
+          
+          <div class="container max-w-3xl relative z-10 px-4 mx-auto">
+            <div class="text-center animate-fade-up">
+              <h1 class="font-display text-3xl md:text-5xl lg:text-6xl font-bold leading-[1.15] mb-4 text-foreground">
+                +3.000 Artes para <span class="text-gradient-purple">Bottons e Ímãs</span> Prontas
+              </h1>
+              <p class="text-black font-normal text-base md:text-lg lg:text-xl leading-snug mb-4">
               Tenha acesso a mais de 3.000 artes prontas e editáveis para bottons e ímãs de alta qualidade.
             </p>
           </div>
@@ -253,28 +254,28 @@
             <div class="carousel-container">
               <div class="carousel-slides">
                 <div class="carousel-slide">
-                  <img src="https://i.ibb.co/dwGSqPkY/Screenshot-2026-06-30-12-15-22-084-com-canva-editor-edit.webp" alt="Artes 1" loading="eager" fetchpriority="high" decoding="sync" width="520" height="520">
+                  <img src="https://i.ibb.co/dwGSqPkY/Screenshot-2026-06-30-12-15-22-084-com-canva-editor-edit.webp" alt="Artes 1" loading="lazy" decoding="async">
                 </div>
                 <div class="carousel-slide">
-                  <img src="https://i.ibb.co/My7JTh2b/Screenshot-2026-06-30-12-17-50-578-com-canva-editor-edit.webp" alt="Artes 2" loading="lazy" decoding="async" width="520" height="520">
+                  <img src="https://i.ibb.co/My7JTh2b/Screenshot-2026-06-30-12-17-50-578-com-canva-editor-edit.webp" alt="Artes 2" loading="lazy" decoding="async">
                 </div>
                 <div class="carousel-slide">
-                  <img src="https://i.ibb.co/gZwYwx1V/Screenshot-2026-06-30-12-13-20-238-com-canva-editor-edit.webp" alt="Artes 3" loading="lazy" decoding="async" width="520" height="520">
+                  <img src="https://i.ibb.co/gZwYwx1V/Screenshot-2026-06-30-12-13-20-238-com-canva-editor-edit.webp" alt="Artes 3" loading="lazy" decoding="async">
                 </div>
                 <div class="carousel-slide">
-                  <img src="https://i.ibb.co/B5MRzSMD/Screenshot-2026-06-30-12-13-40-291-com-canva-editor-edit.webp" alt="Artes 4" loading="lazy" decoding="async" width="520" height="520">
+                  <img src="https://i.ibb.co/B5MRzSMD/Screenshot-2026-06-30-12-13-40-291-com-canva-editor-edit.webp" alt="Artes 4" loading="lazy" decoding="async">
                 </div>
                 <div class="carousel-slide">
-                  <img src="https://i.ibb.co/5W6YqCSB/Screenshot-2026-06-30-12-13-55-476-com-canva-editor-edit.webp" alt="Artes 5" loading="lazy" decoding="async" width="520" height="520">
+                  <img src="https://i.ibb.co/5W6YqCSB/Screenshot-2026-06-30-12-13-55-476-com-canva-editor-edit.webp" alt="Artes 5" loading="lazy" decoding="async">
                 </div>
                 <div class="carousel-slide">
-                  <img src="https://i.ibb.co/8LByvbnD/Screenshot-2026-06-30-12-14-08-230-com-canva-editor-edit.webp" alt="Artes 6" loading="lazy" decoding="async" width="520" height="520">
+                  <img src="https://i.ibb.co/8LByvbnD/Screenshot-2026-06-30-12-14-08-230-com-canva-editor-edit.webp" alt="Artes 6" loading="lazy" decoding="async">
                 </div>
                 <div class="carousel-slide">
-                  <img src="https://i.ibb.co/B2Vg9fx0/Screenshot-2026-06-30-12-14-23-058-com-canva-editor-edit.webp" alt="Artes 7" loading="lazy" decoding="async" width="520" height="520">
+                  <img src="https://i.ibb.co/B2Vg9fx0/Screenshot-2026-06-30-12-14-23-058-com-canva-editor-edit.webp" alt="Artes 7" loading="lazy" decoding="async">
                 </div>
                 <div class="carousel-slide">
-                  <img src="https://i.ibb.co/zTdXLvgw/Screenshot-2026-06-30-12-14-38-535-com-canva-editor-edit.webp" alt="Artes 8" loading="lazy" decoding="async" width="520" height="520">
+                  <img src="https://i.ibb.co/zTdXLvgw/Screenshot-2026-06-30-12-14-38-535-com-canva-editor-edit.webp" alt="Artes 8" loading="lazy" decoding="async">
                 </div>
               </div>
               
@@ -293,6 +294,7 @@
               QUERO AS ARTES AGORA
             </button>
           </div>
+        </div>
         </div>
       </section>
 
@@ -370,7 +372,7 @@
             </h2>
           </div>
 
-          <div class="flex flex-col gap-4 max-w-[300px] mx-auto">
+          <div class="flex flex-col gap-4 max-w-sm mx-auto">
             <!-- Item 1: Bônus 1 -->
             <div class="group glass-card-elevated rounded-xl overflow-hidden hover:shadow-elevated transition-all duration-300">
               <div class="px-4 pt-3 text-center">
@@ -380,8 +382,8 @@
                 <h3 class="font-display font-bold text-foreground md:text-lg text-center leading-tight text-xl">50 Artes Cristãs</h3>
               </div>
               <div class="px-4 flex justify-center">
-                <div class="w-[72%] aspect-square bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/20 rounded-xl overflow-hidden flex items-center justify-center">
-                  <img src="https://i.ibb.co/G4H7WnYL/513ff908-eb98-4ecf-a397-c42cfb628db5.png" alt="Artes Cristãs" class="w-full h-full object-cover" border="0" loading="lazy" decoding="async" width="216" height="216">
+                <div class="w-[56%] aspect-square bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/20 rounded-xl overflow-hidden flex items-center justify-center">
+                  <img src="https://i.ibb.co/G4H7WnYL/513ff908-eb98-4ecf-a397-c42cfb628db5.png" alt="Artes Cristãs" class="w-full h-full object-cover" border="0" loading="lazy" decoding="async">
                 </div>
               </div>
               <div class="px-4 pt-2">
@@ -402,8 +404,8 @@
                 <h3 class="font-display font-bold text-foreground md:text-lg text-center leading-tight text-xl">50 Artes Gamer</h3>
               </div>
               <div class="px-4 flex justify-center">
-                <div class="w-[72%] aspect-square bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/20 rounded-xl overflow-hidden flex items-center justify-center">
-                  <img src="https://i.ibb.co/NdHTHjJH/3c7e4827-8019-4d1b-b8aa-9e8dce4f9c97.png" alt="Artes Gamer" class="w-full h-full object-cover" border="0" loading="lazy" decoding="async" width="216" height="216">
+                <div class="w-[56%] aspect-square bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/20 rounded-xl overflow-hidden flex items-center justify-center">
+                  <img src="https://i.ibb.co/NdHTHjJH/3c7e4827-8019-4d1b-b8aa-9e8dce4f9c97.png" alt="Artes Gamer" class="w-full h-full object-cover" border="0" loading="lazy" decoding="async">
                 </div>
               </div>
               <div class="px-4 pt-2">
@@ -424,8 +426,8 @@
                 <h3 class="font-display font-bold text-foreground md:text-lg text-center leading-tight text-xl">50 Artes Profissões</h3>
               </div>
               <div class="px-4 flex justify-center">
-                <div class="w-[72%] aspect-square bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/20 rounded-xl overflow-hidden flex items-center justify-center">
-                  <img src="https://i.ibb.co/d4Ffwgf6/6b4cbd1d-756b-4567-993d-0c080a5de590.png" alt="Artes Profissões" class="w-full h-full object-cover" border="0" loading="lazy" decoding="async" width="216" height="216">
+                <div class="w-[56%] aspect-square bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/20 rounded-xl overflow-hidden flex items-center justify-center">
+                  <img src="https://i.ibb.co/d4Ffwgf6/6b4cbd1d-756b-4567-993d-0c080a5de590.png" alt="Artes Profissões" class="w-full h-full object-cover" border="0" loading="lazy" decoding="async">
                 </div>
               </div>
               <div class="px-4 pt-2">
@@ -446,8 +448,8 @@
                 <h3 class="font-display font-bold text-foreground md:text-lg text-center leading-tight text-xl">Como Criar Suas Próprias Artes com ChatGPT</h3>
               </div>
               <div class="px-4 flex justify-center">
-                <div class="w-[72%] aspect-square bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/20 rounded-xl overflow-hidden flex items-center justify-center">
-                  <img src="https://i.ibb.co/8nHNBDpk/1e8b1375-e49e-4a30-ae11-d00bc779b36b.png" alt="Como Criar Suas Próprias Artes com ChatGPT" class="w-full h-full object-cover" border="0" loading="lazy" decoding="async" width="216" height="216">
+                <div class="w-[56%] aspect-square bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/20 rounded-xl overflow-hidden flex items-center justify-center">
+                  <img src="https://i.ibb.co/8nHNBDpk/1e8b1375-e49e-4a30-ae11-d00bc779b36b.png" alt="Como Criar Suas Próprias Artes com ChatGPT" class="w-full h-full object-cover" border="0" loading="lazy" decoding="async">
                 </div>
               </div>
               <div class="px-4 pt-2">
@@ -498,20 +500,27 @@
 
       <div class="w-full h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent"></div>
 
-      <!-- Pacotes de Assinatura/Compra -->
+      <!-- Planos de Assinatura/Compra -->
       <section class="py-8 md:py-12 bg-section-light px-4 relative" id="oferta">
         <div class="container max-w-3xl mx-auto">
           <h2 class="font-display text-2xl md:text-4xl font-bold text-center mb-3 text-foreground">
-            Escolha seu pacote <span class="text-gradient-primary">👇</span>
+            Escolha seu plano <span class="text-gradient-primary">👇</span>
           </h2>
           
-
+          <!-- Timer Regressivo -->
+          <div class="flex justify-center mb-6">
+            <span class="glass-card bg-destructive/5 text-destructive border-destructive/20 px-4 py-2 rounded-xl text-xs font-bold inline-flex items-center gap-2">
+              <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Oferta acaba em:
+              <span class="bg-destructive text-white px-1.5 py-0.5 rounded font-bold" id="countdown-display">07:00</span>
+            </span>
+          </div>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mx-auto">
-            <!-- Pacote 1: Básico -->
+            <!-- Plano 1: Básico -->
             <div class="relative rounded-2xl p-5 md:p-6 w-full glass-card border border-border">
               <div class="text-center mb-4 pt-1">
-                <h3 class="font-display text-2xl md:text-3xl font-bold mb-1 text-black">Pacote Básico</h3>
+                <h3 class="font-display text-2xl md:text-3xl font-bold mb-1 text-black">Plano Básico</h3>
               </div>
               
               <div class="text-center mb-4">
@@ -559,9 +568,9 @@
                 </div>
               </div>
 
-              <a href="https://ggcheckout.app/checkout/v5/hP4KHlfuZ0PReMGM5Ets" class="w-full text-center flex items-center justify-center text-sm md:text-base py-5 md:py-6 rounded-xl font-bold border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white transition-all shadow-md hover:shadow-lg" id="basic-plan-btn">
-                QUERO O PACOTE BÁSICO
-              </a>
+              <button class="w-full text-sm md:text-base py-5 md:py-6 rounded-xl font-bold border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white transition-all" id="basic-plan-btn">
+                QUERO O PLANO BÁSICO
+              </button>
 
               <div class="flex items-center justify-center gap-1.5 mt-2 text-muted-foreground">
                 <svg class="w-3 h-3" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
@@ -569,7 +578,7 @@
               </div>
             </div>
 
-            <!-- Pacote 2: Completo -->
+            <!-- Plano 2: Completo -->
             <div class="relative rounded-2xl p-5 md:p-6 w-full glass-card-elevated border-2 border-primary shadow-elevated md:scale-[1.05] ring-2 ring-primary/20 animate-border-glow" style="animation-delay:0.1s">
               <div class="absolute -top-3 left-1/2 -translate-x-1/2">
                 <span class="bg-primary text-white px-4 py-1 rounded-lg text-[10px] font-bold uppercase flex items-center gap-1 whitespace-nowrap shadow-elevated">
@@ -579,13 +588,13 @@
               </div>
 
               <div class="text-center mb-4 pt-1">
-                <h3 class="font-display text-2xl md:text-3xl font-bold mb-1 text-black">Pacote Completo</h3>
+                <h3 class="font-display text-2xl md:text-3xl font-bold mb-1 text-black">Plano Completo</h3>
               </div>
 
               <div class="text-center mb-4">
                 <div class="flex items-baseline justify-center gap-0.5">
                   <span class="text-muted-foreground text-xl">R$</span>
-                  <span class="font-display font-bold text-primary text-6xl md:text-7xl">17</span>
+                  <span class="font-display font-bold text-primary text-6xl md:text-7xl">27</span>
                 </div>
                 <p class="text-muted-foreground text-[10px] mt-1">pagamento único</p>
               </div>
@@ -745,6 +754,67 @@
       </div>
     </footer>
 
+    <!-- Modal de Upsell (Oferta do Plano Completo por R$ 19,90) -->
+    <div class="fixed inset-0 z-50 bg-black/80 hidden" id="upsell-modal">
+      <div class="fixed left-[50%] top-[50%] z-50 grid w-full max-w-[350px] translate-x-[-50%] translate-y-[-50%] gap-3 border bg-background p-5 shadow-lg rounded-2xl border-border">
+        
+        <button class="absolute right-4 top-4 rounded-sm opacity-70 transition-opacity hover:opacity-100 focus:outline-none" id="modal-close-btn">
+          <svg class="h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+          <span class="sr-only">Close</span>
+        </button>
+
+        <div class="text-center space-y-3">
+          <h2 class="font-display text-[30px] md:text-2xl font-bold text-foreground leading-tight">
+            Espere! Antes de finalizar...
+          </h2>
+          
+          <p class="text-[14px] text-black leading-snug font-medium px-1">
+            Você escolheu o plano básico de <span class="font-bold">R$ 10</span>, mas por apenas <span class="text-blue-600 font-bold">R$ 9,90 a mais</span> pode liberar o Pacote Completo, com acesso total a +3.000 Artes Prontas para Bottons e Imãs
+          </p>
+          
+          <!-- Card de destaque com cor levemente diferente -->
+          <div class="bg-zinc-50 border border-zinc-200/60 rounded-xl p-4 space-y-3 shadow-sm">
+            <div class="flex items-baseline justify-center gap-1">
+              <span class="text-muted-foreground text-sm font-semibold">R$</span>
+              <span class="text-5xl md:text-6xl font-extrabold text-primary">19<span class="text-3xl md:text-4xl text-primary font-bold">,90</span></span>
+            </div>
+
+            <div class="w-full h-px bg-zinc-200/50 my-1.5"></div>
+
+            <div class="space-y-2 text-left max-w-[280px] mx-auto">
+              <div class="flex items-center gap-2 text-xs text-foreground font-medium">
+                <div class="w-4.5 h-4.5 rounded-full flex items-center justify-center flex-shrink-0 check-green-bg" style="background-color: #22c55e; border: none;">
+                  <svg class="w-2.5 h-2.5" style="color: #ffffff;" stroke-width="3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                </div>
+                <span class="text-neutral-800 font-semibold text-[11px]">+3.000 Artes Prontas para Bottons e Imãs</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs text-foreground font-medium">
+                <div class="w-4.5 h-4.5 rounded-full flex items-center justify-center flex-shrink-0 check-green-bg" style="background-color: #22c55e; border: none;">
+                  <svg class="w-2.5 h-2.5" style="color: #ffffff;" stroke-width="3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                </div>
+                <span class="text-neutral-800 font-semibold text-[11px]">Acesso Vitalício + Atualizações</span>
+              </div>
+              <div class="flex items-center gap-2 text-xs text-foreground font-medium">
+                <div class="w-4.5 h-4.5 rounded-full flex items-center justify-center flex-shrink-0 check-green-bg" style="background-color: #22c55e; border: none;">
+                  <svg class="w-2.5 h-2.5" style="color: #ffffff;" stroke-width="3.5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                </div>
+                <span class="text-neutral-800 font-semibold text-[11px]">+R$198 Em Bônus Inclusos</span>
+              </div>
+            </div>
+          </div>
+
+          <a href="https://ggcheckout.app/checkout/v5/NbBS5H7FyEpG2X7D9t2v" class="inline-flex items-center justify-center gap-2 rounded-xl text-xs font-bold bg-primary text-white shadow-green-lg hover:scale-[1.01] active:scale-[0.99] uppercase tracking-wide h-11 px-6 w-full font-bold" id="upsell-accept-btn">
+            SIM, QUERO O PLANO COMPLETO!
+          </a>
+          
+          <a href="https://ggcheckout.app/checkout/v5/hP4KHlfuZ0PReMGM5Ets" class="inline-flex items-center justify-center rounded-xl text-xs font-semibold border border-neutral-400/20 hover:border-neutral-400/40 text-neutral-500 hover:text-neutral-800 transition-colors h-11 w-full text-center hover:bg-neutral-50/50 cursor-pointer" id="upsell-decline-btn">
+            Não, prefiro o plano básico
+          </a>
+        </div>
+
+      </div>
+    </div>
+
     <!-- Script de Lógica Principal -->
     <script>
       function initApp() {
@@ -771,7 +841,25 @@
           });
         });
 
-        // 5. Carrossel de Amostras das Artes (Com suporte a Touch/Swipe)
+        // 4. Contador de Tempo Regressivo (07:00 minutos)
+        const timerDisplay = document.getElementById('countdown-display');
+        let timeRemaining = 7 * 60;
+
+        function updateTimer() {
+          if (!timerDisplay) return;
+          const minutes = Math.floor(timeRemaining / 60);
+          const seconds = timeRemaining % 60;
+          timerDisplay.textContent = `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+          if (timeRemaining <= 0) {
+            timeRemaining = 7 * 60;
+          } else {
+            timeRemaining--;
+          }
+        }
+        setInterval(updateTimer, 1000);
+        updateTimer();
+
+        // 5. Carrossel de Amostras das Artes
         const slidesContainer = document.querySelector('.carousel-slides');
         const btnPrev = document.querySelector('.carousel-btn-left');
         const btnNext = document.querySelector('.carousel-btn-right');
@@ -783,12 +871,6 @@
         if (slidesContainer && totalSlides > 0) {
           function updateCarousel() {
             slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
-            // Preload a próxima imagem para transição ultra rápida
-            const nextIdx = (currentSlide + 1) % totalSlides;
-            const nextImg = slides[nextIdx]?.querySelector('img');
-            if (nextImg && nextImg.getAttribute('loading') === 'lazy') {
-              nextImg.setAttribute('loading', 'eager');
-            }
           }
           function nextSlide() {
             currentSlide = (currentSlide + 1) % totalSlides;
@@ -800,25 +882,6 @@
           }
           if (btnNext) btnNext.addEventListener('click', nextSlide);
           if (btnPrev) btnPrev.addEventListener('click', prevSlide);
-
-          // Suporte para gesto de deslizar no mobile (Touch Swipe)
-          let touchStartX = 0;
-          let touchEndX = 0;
-          slidesContainer.addEventListener('touchstart', (e) => {
-            touchStartX = e.changedTouches[0].screenX;
-          }, { passive: true });
-
-          slidesContainer.addEventListener('touchend', (e) => {
-            touchEndX = e.changedTouches[0].screenX;
-            const diff = touchStartX - touchEndX;
-            if (Math.abs(diff) > 40) {
-              if (diff > 0) {
-                nextSlide();
-              } else {
-                prevSlide();
-              }
-            }
-          }, { passive: true });
         }
 
         // 6. Accordion das Perguntas Frequentes (FAQ)
@@ -859,13 +922,20 @@
           }
         });
 
-        // 7. Fluxo de Checkout
+        // 7. Fluxo de Checkout & Pop-up de Upsell (R$ 19)
         const basicPlanBtn = document.getElementById('basic-plan-btn');
         const completePlanBtn = document.getElementById('complete-plan-btn');
+        const upsellModal = document.getElementById('upsell-modal');
+        const modalContent = upsellModal ? upsellModal.querySelector('div') : null;
+        const modalCloseBtn = document.getElementById('modal-close-btn');
+        const upsellAcceptBtn = document.getElementById('upsell-accept-btn');
+        const upsellDeclineBtn = document.getElementById('upsell-decline-btn');
 
         // Links de Checkout da ggcheckout
         const basicCheckoutUrl = 'https://ggcheckout.app/checkout/v5/hP4KHlfuZ0PReMGM5Ets';
         const completeCheckoutUrl = 'https://ggcheckout.app/checkout/v5/IUteR2HzxCUL9WTTbVCa';
+        // Caso queira configurar um checkout específico de R$ 19 para o pop-up, altere este link abaixo:
+        const upsellCheckoutUrl = 'https://ggcheckout.app/checkout/v5/NbBS5H7FyEpG2X7D9t2v'; 
 
         // Helper function to forward current URL query parameters (UTMs) to the checkout URL
         function getCheckoutUrlWithParams(baseUrl) {
@@ -926,30 +996,81 @@
 
         function handleCheckoutRedirect(e, baseUrl) {
           e.preventDefault();
+          
+          // Ensure we have updated parameters
           updateAllHrefs();
+          
           const finalUrl = getCheckoutUrlWithParams(baseUrl);
+          
+          // Redirect immediately - Utmify automatically tracks checkout button clicks and handles the pixel triggering
           window.location.href = finalUrl;
         }
 
         function updateAllHrefs() {
-          if (basicPlanBtn) {
-            basicPlanBtn.setAttribute('href', getCheckoutUrlWithParams(basicCheckoutUrl));
-          }
           if (completePlanBtn) {
             completePlanBtn.setAttribute('href', getCheckoutUrlWithParams(completeCheckoutUrl));
+          }
+          if (upsellAcceptBtn) {
+            upsellAcceptBtn.setAttribute('href', getCheckoutUrlWithParams(upsellCheckoutUrl));
+          }
+          if (upsellDeclineBtn) {
+            upsellDeclineBtn.setAttribute('href', getCheckoutUrlWithParams(basicCheckoutUrl));
           }
         }
 
         // Initialize hrefs immediately and also register trigger event listeners
         updateAllHrefs();
 
-        if (basicPlanBtn) {
-          basicPlanBtn.addEventListener('click', (e) => handleCheckoutRedirect(e, basicCheckoutUrl));
-          basicPlanBtn.addEventListener('mousedown', updateAllHrefs);
-        }
         if (completePlanBtn) {
           completePlanBtn.addEventListener('click', (e) => handleCheckoutRedirect(e, completeCheckoutUrl));
           completePlanBtn.addEventListener('mousedown', updateAllHrefs);
+        }
+        if (upsellAcceptBtn) {
+          upsellAcceptBtn.addEventListener('click', (e) => handleCheckoutRedirect(e, upsellCheckoutUrl));
+          upsellAcceptBtn.addEventListener('mousedown', updateAllHrefs);
+        }
+        if (upsellDeclineBtn) {
+          upsellDeclineBtn.addEventListener('click', (e) => handleCheckoutRedirect(e, basicCheckoutUrl));
+          upsellDeclineBtn.addEventListener('mousedown', updateAllHrefs);
+        }
+
+        function openUpsellModal() {
+          if (!upsellModal) return;
+          upsellModal.classList.remove('hidden');
+          upsellModal.setAttribute('data-state', 'open');
+          if (modalContent) modalContent.setAttribute('data-state', 'open');
+        }
+
+        function closeUpsellModal(callback) {
+          if (!upsellModal) return;
+          upsellModal.setAttribute('data-state', 'closed');
+          if (modalContent) modalContent.setAttribute('data-state', 'closed');
+          
+          setTimeout(() => {
+            upsellModal.classList.add('hidden');
+            if (callback) callback();
+          }, 200);
+        }
+
+        if (basicPlanBtn) {
+          basicPlanBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openUpsellModal();
+          });
+        }
+
+        if (modalCloseBtn) {
+          modalCloseBtn.addEventListener('click', () => {
+            closeUpsellModal();
+          });
+        }
+
+        if (upsellModal) {
+          upsellModal.addEventListener('click', (e) => {
+            if (e.target === upsellModal) {
+              closeUpsellModal();
+            }
+          });
         }
       }
 
