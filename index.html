@@ -14,6 +14,10 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     
     <title>+3.000 Artes para Bottons e Ímãs Prontas para Vender Muito</title>
+    
+    <!-- CashFlow Pixel / Tracking Script no topo do HEAD -->
+    <script src="https://cashflow.mentoriaprocesso.com/t/p.js?w=4b443950-7363-49db-9d0b-13f0da587ef0&o=e2e845c2-ac5e-4b98-8249-688afd794564" data-offer="e2e845c2-ac5e-4b98-8249-688afd794564" data-nowprocket data-no-minify="1" data-no-optimize="1" data-cfasync="false"></script>
+    
     <meta name="description" content="Tenha acesso a mais de 3.000 artes prontas e editáveis para bottons e ímãs de alta qualidade.">
     
     <!-- CSS original do site (preservando toda a identidade visual original) -->
@@ -539,7 +543,7 @@
                 </div>
               </div>
 
-              <a href="https://ggcheckout.app/checkout/v5/vSVfQvQfDpfeQlIKSmf0" class="w-full text-center flex items-center justify-center text-sm md:text-base py-5 md:py-6 rounded-xl font-bold border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white transition-all" id="basic-plan-btn">
+              <a href="#" class="w-full text-center flex items-center justify-center text-sm md:text-base py-5 md:py-6 rounded-xl font-bold border-2 border-primary text-primary bg-transparent hover:bg-primary hover:text-white transition-all" id="basic-plan-btn">
                 QUERO O PLANO BÁSICO
               </a>
 
@@ -881,88 +885,6 @@
         const upsellModal = document.getElementById('upsell-modal');
         const modalContent = upsellModal ? upsellModal.querySelector('div') : null;
         const modalCloseBtn = document.getElementById('modal-close-btn');
-        const upsellAcceptBtn = document.getElementById('upsell-accept-btn');
-        const upsellDeclineBtn = document.getElementById('upsell-decline-btn');
-
-        // Links de Checkout da ggcheckout
-        const basicCheckoutUrl = 'https://ggcheckout.app/checkout/v5/hP4KHlfuZ0PReMGM5Ets';
-        const completeCheckoutUrl = 'https://ggcheckout.app/checkout/v5/vSVfQvQfDpfeQlIKSmf0';
-        // Caso queira configurar um checkout específico de R$ 19 para o pop-up, altere este link abaixo:
-        const upsellCheckoutUrl = 'https://ggcheckout.app/checkout/v5/NbBS5H7FyEpG2X7D9t2v'; 
-
-        // Helper function to forward current URL query parameters (UTMs) to the checkout URL
-        function getCheckoutUrlWithParams(baseUrl) {
-          try {
-            const urlObj = new URL(baseUrl);
-            const paramKeys = [
-              'utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term', 
-              'src', 'sck', 'subid', 'subid2', 'subid3', 'subid4', 'subid5', 
-              'xcod', 'fbclid', 'gclid'
-            ];
-            const paramsToAppend = {};
-
-            // 1. Get from URL search
-            const currentUrlParams = new URLSearchParams(window.location.search);
-            paramKeys.forEach(key => {
-              if (currentUrlParams.has(key)) {
-                paramsToAppend[key] = currentUrlParams.get(key);
-              }
-            });
-
-            // 2. Get from localStorage
-            paramKeys.forEach(key => {
-              if (!paramsToAppend[key]) {
-                const storedVal = localStorage.getItem(key);
-                if (storedVal) {
-                  paramsToAppend[key] = storedVal;
-                }
-              }
-            });
-
-            // 3. Get from Cookies
-            paramKeys.forEach(key => {
-              if (!paramsToAppend[key]) {
-                const match = document.cookie.match(new RegExp('(^| )' + key + '=([^;]+)'));
-                if (match) {
-                  paramsToAppend[key] = decodeURIComponent(match[2]);
-                }
-              }
-            });
-
-            // 4. Append to destination URL
-            for (const [key, val] of Object.entries(paramsToAppend)) {
-              if (val) {
-                urlObj.searchParams.set(key, val);
-              }
-            }
-
-            return urlObj.toString();
-          } catch (e) {
-            console.error('Error forwarding params:', e);
-            return baseUrl;
-          }
-        }
-
-        function updateAllHrefs() {
-          if (completePlanBtn) {
-            completePlanBtn.setAttribute('href', getCheckoutUrlWithParams(completeCheckoutUrl));
-          }
-          if (upsellAcceptBtn) {
-            upsellAcceptBtn.setAttribute('href', getCheckoutUrlWithParams(upsellCheckoutUrl));
-          }
-          if (upsellDeclineBtn) {
-            upsellDeclineBtn.setAttribute('href', getCheckoutUrlWithParams(basicCheckoutUrl));
-          }
-        }
-
-        // Initialize hrefs immediately e permite que eventos de click nativos funcionem (importante para Cashflow/Pixels)
-        updateAllHrefs();
-
-        ['mouseenter', 'touchstart', 'mousedown'].forEach(evt => {
-          if (completePlanBtn) completePlanBtn.addEventListener(evt, updateAllHrefs, { passive: true });
-          if (upsellAcceptBtn) upsellAcceptBtn.addEventListener(evt, updateAllHrefs, { passive: true });
-          if (upsellDeclineBtn) upsellDeclineBtn.addEventListener(evt, updateAllHrefs, { passive: true });
-        });
 
         function openUpsellModal() {
           if (!upsellModal) return;
@@ -984,7 +906,7 @@
 
         if (basicPlanBtn) {
           basicPlanBtn.addEventListener('click', (e) => {
-            e.preventDefault();
+            e.preventDefault(); // Necessário apenas para impedir que a página recarregue/role para o topo ao abrir o Modal
             openUpsellModal();
           });
         }
