@@ -4,10 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="dns-prefetch" href="https://i.ibb.co/">
+    <link rel="dns-prefetch" href="https://i.ibb.co">
     <link rel="preconnect" href="https://i.ibb.co" crossorigin>
-    <link rel="dns-prefetch" href="https://i.imgur.com">
-    <link rel="preconnect" href="https://i.imgur.com" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -18,6 +16,9 @@
     <!-- CashFlow Pixel / Tracking Script no topo do HEAD -->
     <script src="https://cashflow.mentoriaprocesso.com/t/p.js?w=4b443950-7363-49db-9d0b-13f0da587ef0&o=e2e845c2-ac5e-4b98-8249-688afd794564" data-offer="e2e845c2-ac5e-4b98-8249-688afd794564" data-nowprocket data-no-minify="1" data-no-optimize="1" data-cfasync="false"></script>
     
+    <!-- Preload da imagem principal (LCP / Hero) para carregamento instantâneo -->
+    <link rel="preload" as="image" href="https://i.ibb.co/dwGSqPkY/Screenshot-2026-06-30-12-15-22-084-com-canva-editor-edit.webp" fetchpriority="high">
+
     <meta name="description" content="Tenha acesso a mais de 3.000 artes prontas e editáveis para bottons e ímãs de alta qualidade.">
     
     <!-- CSS original do site (preservando toda a identidade visual original) -->
@@ -25,7 +26,7 @@
 
     <!-- CSS customizado para aplicar a identidade azul #2563EB e estilos específicos -->
     <style>
-      body { font-family: 'Inter', sans-serif !important; }
+      body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; }
       :root {
         --background: 210 40% 98% !important;
         --foreground: 222.2 84% 4.9% !important;
@@ -74,7 +75,7 @@
         background: #1d4ed8 !important;
       }
 
-      .shadow-elevated, .shadow-green-lg, .shadow-elegant, .shadow-elevated {
+      .shadow-elevated, .shadow-green-lg, .shadow-elegant {
         box-shadow: 0 4px 15px rgba(37, 99, 235, 0.1) !important;
       }
 
@@ -110,6 +111,8 @@
         border: none !important;
         background: transparent !important;
         box-shadow: none !important;
+        aspect-ratio: 1 / 1;
+        contain: paint layout;
       }
       
       .carousel-slides {
@@ -175,34 +178,10 @@
         color: #ffffff !important;
       }
     </style>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <script>
-      // ALTERE O LINK PARA A PÁGINA QUE QUISER MOSTRAR QUANDO O USUÁRIO TENTAR SAIR
-      const link = 'https://backartes.vercel.app';
-
-      function setBackRedirect(url) {
-        let urlBackRedirect = url;
-        urlBackRedirect = urlBackRedirect =
-          urlBackRedirect.trim() +
-          (urlBackRedirect.indexOf('?') > 0 ? '&' : '?') +
-          document.location.search.replace('?', '').toString();
-
-        history.pushState({}, '', location.href);
-        history.pushState({}, '', location.href);
-        history.pushState({}, '', location.href);
-
-        window.addEventListener('popstate', () => {
-          console.log('onpopstate', urlBackRedirect);
-          setTimeout(() => {
-            location.href = urlBackRedirect;
-          }, 1);
-        });
-      }
-
-      setBackRedirect(link);
-    </script>
-
-
+    <!-- Fonte Inter carregada de forma não-bloqueante para acelerar FCP e Connect Rate -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
   </head>
 
   <body>
@@ -220,8 +199,8 @@
         </div>
 
         <div class="py-6 md:py-10 relative">
-          <div class="absolute top-0 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-float"></div>
-          <div class="absolute bottom-0 right-10 w-96 h-96 bg-primary/5 rounded-full blur-3xl animate-float" style="animation-delay:2s"></div>
+          <div class="absolute top-0 left-10 w-72 h-72 bg-primary/5 rounded-full blur-2xl pointer-events-none transform-gpu"></div>
+          <div class="absolute bottom-0 right-10 w-96 h-96 bg-primary/5 rounded-full blur-2xl pointer-events-none transform-gpu"></div>
           
           <div class="container max-w-3xl relative z-10 px-4 mx-auto">
             <div class="text-center animate-fade-up">
@@ -238,28 +217,28 @@
             <div class="carousel-container">
               <div class="carousel-slides">
                 <div class="carousel-slide">
-                  <img src="https://i.ibb.co/dwGSqPkY/Screenshot-2026-06-30-12-15-22-084-com-canva-editor-edit.webp" alt="Artes 1">
+                  <img src="https://i.ibb.co/dwGSqPkY/Screenshot-2026-06-30-12-15-22-084-com-canva-editor-edit.webp" alt="Artes 1" width="520" height="520" fetchpriority="high" decoding="async">
                 </div>
                 <div class="carousel-slide">
-                  <img src="https://i.ibb.co/My7JTh2b/Screenshot-2026-06-30-12-17-50-578-com-canva-editor-edit.webp" alt="Artes 2">
+                  <img src="https://i.ibb.co/My7JTh2b/Screenshot-2026-06-30-12-17-50-578-com-canva-editor-edit.webp" alt="Artes 2" width="520" height="520" loading="lazy" decoding="async">
                 </div>
                 <div class="carousel-slide">
-                  <img src="https://i.ibb.co/gZwYwx1V/Screenshot-2026-06-30-12-13-20-238-com-canva-editor-edit.webp" alt="Artes 3">
+                  <img src="https://i.ibb.co/gZwYwx1V/Screenshot-2026-06-30-12-13-20-238-com-canva-editor-edit.webp" alt="Artes 3" width="520" height="520" loading="lazy" decoding="async">
                 </div>
                 <div class="carousel-slide">
-                  <img src="https://i.ibb.co/B5MRzSMD/Screenshot-2026-06-30-12-13-40-291-com-canva-editor-edit.webp" alt="Artes 4">
+                  <img src="https://i.ibb.co/B5MRzSMD/Screenshot-2026-06-30-12-13-40-291-com-canva-editor-edit.webp" alt="Artes 4" width="520" height="520" loading="lazy" decoding="async">
                 </div>
                 <div class="carousel-slide">
-                  <img src="https://i.ibb.co/5W6YqCSB/Screenshot-2026-06-30-12-13-55-476-com-canva-editor-edit.webp" alt="Artes 5">
+                  <img src="https://i.ibb.co/5W6YqCSB/Screenshot-2026-06-30-12-13-55-476-com-canva-editor-edit.webp" alt="Artes 5" width="520" height="520" loading="lazy" decoding="async">
                 </div>
                 <div class="carousel-slide">
-                  <img src="https://i.ibb.co/8LByvbnD/Screenshot-2026-06-30-12-14-08-230-com-canva-editor-edit.webp" alt="Artes 6">
+                  <img src="https://i.ibb.co/8LByvbnD/Screenshot-2026-06-30-12-14-08-230-com-canva-editor-edit.webp" alt="Artes 6" width="520" height="520" loading="lazy" decoding="async">
                 </div>
                 <div class="carousel-slide">
-                  <img src="https://i.ibb.co/B2Vg9fx0/Screenshot-2026-06-30-12-14-23-058-com-canva-editor-edit.webp" alt="Artes 7">
+                  <img src="https://i.ibb.co/B2Vg9fx0/Screenshot-2026-06-30-12-14-23-058-com-canva-editor-edit.webp" alt="Artes 7" width="520" height="520" loading="lazy" decoding="async">
                 </div>
                 <div class="carousel-slide">
-                  <img src="https://i.ibb.co/zTdXLvgw/Screenshot-2026-06-30-12-14-38-535-com-canva-editor-edit.webp" alt="Artes 8">
+                  <img src="https://i.ibb.co/zTdXLvgw/Screenshot-2026-06-30-12-14-38-535-com-canva-editor-edit.webp" alt="Artes 8" width="520" height="520" loading="lazy" decoding="async">
                 </div>
               </div>
               
@@ -367,7 +346,7 @@
               </div>
               <div class="px-4 flex justify-center">
                 <div class="w-[56%] aspect-square bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/20 rounded-xl overflow-hidden flex items-center justify-center">
-                  <img src="https://i.ibb.co/G4H7WnYL/513ff908-eb98-4ecf-a397-c42cfb628db5.png" alt="Artes Cristãs" class="w-full h-full object-cover" border="0">
+                  <img src="https://i.ibb.co/G4H7WnYL/513ff908-eb98-4ecf-a397-c42cfb628db5.png" alt="Artes Cristãs" class="w-full h-full object-cover" width="300" height="300" loading="lazy" decoding="async">
                 </div>
               </div>
               <div class="px-4 pt-2">
@@ -389,7 +368,7 @@
               </div>
               <div class="px-4 flex justify-center">
                 <div class="w-[56%] aspect-square bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/20 rounded-xl overflow-hidden flex items-center justify-center">
-                  <img src="https://i.ibb.co/NdHTHjJH/3c7e4827-8019-4d1b-b8aa-9e8dce4f9c97.png" alt="Artes Gamer" class="w-full h-full object-cover" border="0">
+                  <img src="https://i.ibb.co/NdHTHjJH/3c7e4827-8019-4d1b-b8aa-9e8dce4f9c97.png" alt="Artes Gamer" class="w-full h-full object-cover" width="300" height="300" loading="lazy" decoding="async">
                 </div>
               </div>
               <div class="px-4 pt-2">
@@ -411,7 +390,7 @@
               </div>
               <div class="px-4 flex justify-center">
                 <div class="w-[56%] aspect-square bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/20 rounded-xl overflow-hidden flex items-center justify-center">
-                  <img src="https://i.ibb.co/d4Ffwgf6/6b4cbd1d-756b-4567-993d-0c080a5de590.png" alt="Artes Profissões" class="w-full h-full object-cover" border="0">
+                  <img src="https://i.ibb.co/d4Ffwgf6/6b4cbd1d-756b-4567-993d-0c080a5de590.png" alt="Artes Profissões" class="w-full h-full object-cover" width="300" height="300" loading="lazy" decoding="async">
                 </div>
               </div>
               <div class="px-4 pt-2">
@@ -433,7 +412,7 @@
               </div>
               <div class="px-4 flex justify-center">
                 <div class="w-[56%] aspect-square bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/20 rounded-xl overflow-hidden flex items-center justify-center">
-                  <img src="https://i.ibb.co/8nHNBDpk/1e8b1375-e49e-4a30-ae11-d00bc779b36b.png" alt="Como Criar Suas Próprias Artes com ChatGPT" class="w-full h-full object-cover" border="0">
+                  <img src="https://i.ibb.co/8nHNBDpk/1e8b1375-e49e-4a30-ae11-d00bc779b36b.png" alt="Como Criar Suas Próprias Artes com ChatGPT" class="w-full h-full object-cover" width="300" height="300" loading="lazy" decoding="async">
                 </div>
               </div>
               <div class="px-4 pt-2">
@@ -923,6 +902,26 @@
               closeUpsellModal();
             }
           });
+        }
+
+        // 8. Back-Redirect (Executado de forma não-bloqueante após o First Paint)
+        try {
+          const backRedirectLink = 'https://backartes.vercel.app';
+          let urlBackRedirect = backRedirectLink.trim() +
+            (backRedirectLink.indexOf('?') > 0 ? '&' : '?') +
+            document.location.search.replace('?', '').toString();
+
+          history.pushState({}, '', location.href);
+          history.pushState({}, '', location.href);
+          history.pushState({}, '', location.href);
+
+          window.addEventListener('popstate', () => {
+            setTimeout(() => {
+              location.href = urlBackRedirect;
+            }, 1);
+          });
+        } catch (err) {
+          console.warn('Back-redirect:', err);
         }
       }
 
