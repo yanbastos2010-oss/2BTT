@@ -58,21 +58,8 @@
         background: linear-gradient(180deg, #ffffff 0%, #eff6ff 100%) !important;
       }
       
-      .bg-gradient-to-r.from-primary {
-        background: linear-gradient(to right, #2563eb, #1d4ed8) !important;
-      }
-
       .text-gradient-purple, .text-gradient-primary {
         color: #2563eb !important;
-      }
-
-      button[class*="bg-gradient-to-r"] {
-        background: #2563eb !important;
-        color: #ffffff !important;
-      }
-
-      button[class*="bg-gradient-to-r"]:hover {
-        background: #1d4ed8 !important;
       }
 
       .shadow-elevated, .shadow-green-lg, .shadow-elegant {
@@ -173,9 +160,6 @@
       .check-green-bg {
         background-color: #22c55e !important;
         border: none !important;
-      }
-      .check-white-icon {
-        color: #ffffff !important;
       }
     </style>
     <!-- Fonte Inter carregada de forma não-bloqueante para acelerar FCP e Connect Rate -->
@@ -346,7 +330,7 @@
               </div>
               <div class="px-4 flex justify-center">
                 <div class="w-[56%] aspect-square bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/20 rounded-xl overflow-hidden flex items-center justify-center">
-                  <img src="https://i.ibb.co/G4H7WnYL/513ff908-eb98-4ecf-a397-c42cfb628db5.png" alt="Artes Cristãs" class="w-full h-full object-cover" width="300" height="300" loading="lazy" decoding="async">
+                  <img src="/bonus/bonus-cristas.webp" onerror="this.onerror=null;this.src='https://i.ibb.co/G4H7WnYL/513ff908-eb98-4ecf-a397-c42cfb628db5.png'" alt="Artes Cristãs" class="w-full h-full object-cover" width="300" height="300" loading="lazy" decoding="async">
                 </div>
               </div>
               <div class="px-4 pt-2">
@@ -368,7 +352,7 @@
               </div>
               <div class="px-4 flex justify-center">
                 <div class="w-[56%] aspect-square bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/20 rounded-xl overflow-hidden flex items-center justify-center">
-                  <img src="https://i.ibb.co/NdHTHjJH/3c7e4827-8019-4d1b-b8aa-9e8dce4f9c97.png" alt="Artes Gamer" class="w-full h-full object-cover" width="300" height="300" loading="lazy" decoding="async">
+                  <img src="/bonus/bonus-gamer.webp" onerror="this.onerror=null;this.src='https://i.ibb.co/NdHTHjJH/3c7e4827-8019-4d1b-b8aa-9e8dce4f9c97.png'" alt="Artes Gamer" class="w-full h-full object-cover" width="300" height="300" loading="lazy" decoding="async">
                 </div>
               </div>
               <div class="px-4 pt-2">
@@ -390,7 +374,7 @@
               </div>
               <div class="px-4 flex justify-center">
                 <div class="w-[56%] aspect-square bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/20 rounded-xl overflow-hidden flex items-center justify-center">
-                  <img src="https://i.ibb.co/d4Ffwgf6/6b4cbd1d-756b-4567-993d-0c080a5de590.png" alt="Artes Profissões" class="w-full h-full object-cover" width="300" height="300" loading="lazy" decoding="async">
+                  <img src="/bonus/bonus-profissoes.webp" onerror="this.onerror=null;this.src='https://i.ibb.co/d4Ffwgf6/6b4cbd1d-756b-4567-993d-0c080a5de590.png'" alt="Artes Profissões" class="w-full h-full object-cover" width="300" height="300" loading="lazy" decoding="async">
                 </div>
               </div>
               <div class="px-4 pt-2">
@@ -412,7 +396,7 @@
               </div>
               <div class="px-4 flex justify-center">
                 <div class="w-[56%] aspect-square bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/20 rounded-xl overflow-hidden flex items-center justify-center">
-                  <img src="https://i.ibb.co/8nHNBDpk/1e8b1375-e49e-4a30-ae11-d00bc779b36b.png" alt="Como Criar Suas Próprias Artes com ChatGPT" class="w-full h-full object-cover" width="300" height="300" loading="lazy" decoding="async">
+                  <img src="/bonus/bonus-chatgpt.webp" onerror="this.onerror=null;this.src='https://i.ibb.co/8nHNBDpk/1e8b1375-e49e-4a30-ae11-d00bc779b36b.png'" alt="Como Criar Suas Próprias Artes com ChatGPT" class="w-full h-full object-cover" width="300" height="300" loading="lazy" decoding="async">
                 </div>
               </div>
               <div class="px-4 pt-2">
@@ -860,7 +844,6 @@
 
         // 7. Fluxo de Checkout & Pop-up de Upsell (R$ 19)
         const basicPlanBtn = document.getElementById('basic-plan-btn');
-        const completePlanBtn = document.getElementById('complete-plan-btn');
         const upsellModal = document.getElementById('upsell-modal');
         const modalContent = upsellModal ? upsellModal.querySelector('div') : null;
         const modalCloseBtn = document.getElementById('modal-close-btn');
