@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+    <meta name="referrer" content="no-referrer" />
+    
     <link rel="dns-prefetch" href="https://i.ibb.co">
     <link rel="preconnect" href="https://i.ibb.co" crossorigin>
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -16,12 +18,8 @@
     <!-- CashFlow Pixel / Tracking Script no topo do HEAD -->
     <script src="https://cashflow.mentoriaprocesso.com/t/p.js?w=4b443950-7363-49db-9d0b-13f0da587ef0&o=e2e845c2-ac5e-4b98-8249-688afd794564" data-offer="e2e845c2-ac5e-4b98-8249-688afd794564" data-nowprocket data-no-minify="1" data-no-optimize="1" data-cfasync="false"></script>
     
-    <!-- Preload de todas as 5 imagens do carrossel para carregamento imediato conjunto -->
-    <link rel="preload" as="image" href="https://i.ibb.co/QvjT25w0/Screenshot-2026-06-30-12-13-55-476-com-canva-editor-edit-11zon.webp">
-    <link rel="preload" as="image" href="https://i.ibb.co/5gsDgWWZ/Screenshot-2026-06-30-12-15-22-084-com-canva-editor-edit-11zon.webp">
-    <link rel="preload" as="image" href="https://i.ibb.co/KpLJLQ1h/Screenshot-2026-06-30-12-14-23-058-com-canva-editor-edit-11zon.webp">
-    <link rel="preload" as="image" href="https://i.ibb.co/sdnzbPjR/Screenshot-2026-06-30-12-13-20-238-com-canva-editor-edit-11zon.webp">
-    <link rel="preload" as="image" href="https://i.ibb.co/ymCSyPjy/Screenshot-2026-06-30-12-17-50-578-com-canva-editor-edit-11zon.webp">
+    <!-- Preload da imagem principal (LCP / Hero) para carregamento instantâneo -->
+    <link rel="preload" as="image" href="https://i.ibb.co/dwGSqPkY/Screenshot-2026-06-30-12-15-22-084-com-canva-editor-edit.webp" fetchpriority="high">
 
     <meta name="description" content="Tenha acesso a mais de 3.000 artes prontas e editáveis para bottons e ímãs de alta qualidade.">
     
@@ -92,43 +90,53 @@
         transition: max-height 0.2s ease-out;
       }
 
-      /* Carrossel Limpo (somente imagens e setas em proporção 9:16) */
-      .carousel-container {
+      /* Carrossel Limpo 9:16 (sem bordas, tamanho original, passadores nas laterais) */
+      .carousel-wrapper {
         position: relative;
         width: 100%;
-        max-width: 380px;
+        max-width: 480px;
         margin: 0 auto;
       }
 
-      .carousel-viewport {
+      .carousel-container {
         position: relative;
         width: 100%;
         overflow: hidden;
-        aspect-ratio: 9 / 16;
-        contain: paint layout;
+        border: none !important;
         border-radius: 0 !important;
+        background: transparent !important;
+        box-shadow: none !important;
+        aspect-ratio: 9 / 16;
+        min-height: 480px;
       }
       
       .carousel-slides {
         display: flex;
+        width: 100%;
         height: 100%;
         transition: transform 0.3s ease-in-out;
       }
       
       .carousel-slide {
         min-width: 100%;
+        width: 100%;
         height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
         background-color: transparent !important;
+        border: none !important;
+        border-radius: 0 !important;
       }
       
       .carousel-slide img {
         width: 100%;
-        height: 100%;
+        max-height: 100%;
         object-fit: contain;
+        display: block;
+        border: none !important;
         border-radius: 0 !important;
+        box-shadow: none !important;
       }
       
       .carousel-btn {
@@ -145,9 +153,9 @@
         display: flex;
         align-items: center;
         justify-content: center;
-        z-index: 20;
+        z-index: 10;
         transition: transform 0.2s, background-color 0.2s;
-        box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35) !important;
+        box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3) !important;
       }
       .carousel-btn svg {
         width: 24px;
@@ -170,10 +178,10 @@
 
       @media (min-width: 640px) {
         .carousel-btn-left {
-          left: -1.5rem;
+          left: -3.5rem;
         }
         .carousel-btn-right {
-          right: -1.5rem;
+          right: -3.5rem;
         }
       }
 
@@ -213,29 +221,38 @@
                 +3.000 Artes para <span class="text-gradient-purple">Bottons e Ímãs</span> Prontas
               </h1>
               <p class="text-black font-normal text-base md:text-lg lg:text-xl leading-snug mb-4">
-              Tenha acesso a mais de 3.000 artes prontas e editáveis para bottons e ímãs de alta qualidade.
-            </p>
-          </div>
+                Tenha acesso a mais de 3.000 artes prontas e editáveis para bottons e ímãs de alta qualidade.
+              </p>
+            </div>
 
           <!-- Carrossel de Imagens (no lugar da VSL) -->
-          <div class="animate-fade-up-delay-1 mx-auto mt-5 px-4 sm:px-0">
-            <div class="carousel-container">
-              <div class="carousel-viewport">
+          <div class="animate-fade-up-delay-1 mx-auto mt-5">
+            <div class="carousel-wrapper">
+              <div class="carousel-container">
                 <div class="carousel-slides">
                   <div class="carousel-slide">
-                    <img src="https://i.ibb.co/QvjT25w0/Screenshot-2026-06-30-12-13-55-476-com-canva-editor-edit-11zon.webp" alt="Artes 1" width="380" height="675" decoding="async">
+                    <img src="https://i.ibb.co/dwGSqPkY/Screenshot-2026-06-30-12-15-22-084-com-canva-editor-edit.webp" alt="Artes 1" fetchpriority="high" decoding="async" referrerpolicy="no-referrer">
                   </div>
                   <div class="carousel-slide">
-                    <img src="https://i.ibb.co/5gsDgWWZ/Screenshot-2026-06-30-12-15-22-084-com-canva-editor-edit-11zon.webp" alt="Artes 2" width="380" height="675" decoding="async">
+                    <img src="https://i.ibb.co/My7JTh2b/Screenshot-2026-06-30-12-17-50-578-com-canva-editor-edit.webp" alt="Artes 2" decoding="async" referrerpolicy="no-referrer">
                   </div>
                   <div class="carousel-slide">
-                    <img src="https://i.ibb.co/KpLJLQ1h/Screenshot-2026-06-30-12-14-23-058-com-canva-editor-edit-11zon.webp" alt="Artes 3" width="380" height="675" decoding="async">
+                    <img src="https://i.ibb.co/gZwYwx1V/Screenshot-2026-06-30-12-13-20-238-com-canva-editor-edit.webp" alt="Artes 3" decoding="async" referrerpolicy="no-referrer">
                   </div>
                   <div class="carousel-slide">
-                    <img src="https://i.ibb.co/sdnzbPjR/Screenshot-2026-06-30-12-13-20-238-com-canva-editor-edit-11zon.webp" alt="Artes 4" width="380" height="675" decoding="async">
+                    <img src="https://i.ibb.co/B5MRzSMD/Screenshot-2026-06-30-12-13-40-291-com-canva-editor-edit.webp" alt="Artes 4" decoding="async" referrerpolicy="no-referrer">
                   </div>
                   <div class="carousel-slide">
-                    <img src="https://i.ibb.co/ymCSyPjy/Screenshot-2026-06-30-12-17-50-578-com-canva-editor-edit-11zon.webp" alt="Artes 5" width="380" height="675" decoding="async">
+                    <img src="https://i.ibb.co/5W6YqCSB/Screenshot-2026-06-30-12-13-55-476-com-canva-editor-edit.webp" alt="Artes 5" decoding="async" referrerpolicy="no-referrer">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="https://i.ibb.co/8LByvbnD/Screenshot-2026-06-30-12-14-08-230-com-canva-editor-edit.webp" alt="Artes 6" decoding="async" referrerpolicy="no-referrer">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="https://i.ibb.co/B2Vg9fx0/Screenshot-2026-06-30-12-14-23-058-com-canva-editor-edit.webp" alt="Artes 7" decoding="async" referrerpolicy="no-referrer">
+                  </div>
+                  <div class="carousel-slide">
+                    <img src="https://i.ibb.co/zTdXLvgw/Screenshot-2026-06-30-12-14-38-535-com-canva-editor-edit.webp" alt="Artes 8" decoding="async" referrerpolicy="no-referrer">
                   </div>
                 </div>
               </div>
@@ -816,6 +833,24 @@
           }
           if (btnNext) btnNext.addEventListener('click', nextSlide);
           if (btnPrev) btnPrev.addEventListener('click', prevSlide);
+
+          // Suporte a deslizar o dedo (swipe) em dispositivos móveis
+          let touchStartX = 0;
+          slidesContainer.addEventListener('touchstart', (e) => {
+            touchStartX = e.touches[0].clientX;
+          }, { passive: true });
+
+          slidesContainer.addEventListener('touchend', (e) => {
+            const touchEndX = e.changedTouches[0].clientX;
+            const diffX = touchStartX - touchEndX;
+            if (Math.abs(diffX) > 40) {
+              if (diffX > 0) {
+                nextSlide();
+              } else {
+                prevSlide();
+              }
+            }
+          }, { passive: true });
         }
 
         // 6. Accordion das Perguntas Frequentes (FAQ)
