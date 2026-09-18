@@ -16,7 +16,7 @@
     <script src="https://cashflow.mentoriaprocesso.com/t/p.js?w=4b443950-7363-49db-9d0b-13f0da587ef0&o=e2e845c2-ac5e-4b98-8249-688afd794564" data-offer="e2e845c2-ac5e-4b98-8249-688afd794564" data-nowprocket data-no-minify="1" data-no-optimize="1" data-cfasync="false"></script>
     
     <!-- Preload da imagem principal (LCP / Hero) para carregamento instantâneo -->
-    <link rel="preload" as="image" href="/artes/arte-1.webp?v=3" fetchpriority="high">
+    <link rel="preload" as="image" href="/hero/slide-1.webp" fetchpriority="high">
 
     <meta name="description" content="Tenha acesso a mais de 3.000 artes prontas e editáveis para bottons e ímãs de alta qualidade.">
     
@@ -228,28 +228,28 @@
               <div class="carousel-container">
                 <div class="carousel-slides">
                   <div class="carousel-slide">
-                    <img src="/artes/arte-1.webp?v=3" alt="Artes 1" fetchpriority="high" decoding="async" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src='/artes/arte-1.webp?r='+Date.now();}">
+                    <img src="/hero/slide-1.webp" onerror="this.onerror=null;this.src='/hero/slide-1.jpg'" alt="Arte 1" fetchpriority="high" decoding="async">
                   </div>
                   <div class="carousel-slide">
-                    <img src="/artes/arte-2.webp?v=3" alt="Artes 2" decoding="async" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src='/artes/arte-2.webp?r='+Date.now();}">
+                    <img src="/hero/slide-2.webp" onerror="this.onerror=null;this.src='/hero/slide-2.jpg'" alt="Arte 2" decoding="async">
                   </div>
                   <div class="carousel-slide">
-                    <img src="/artes/arte-3.webp?v=3" alt="Artes 3" decoding="async" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src='/artes/arte-3.webp?r='+Date.now();}">
+                    <img src="/hero/slide-3.webp" onerror="this.onerror=null;this.src='/hero/slide-3.jpg'" alt="Arte 3" decoding="async">
                   </div>
                   <div class="carousel-slide">
-                    <img src="/artes/arte-4.webp?v=3" alt="Artes 4" decoding="async" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src='/artes/arte-4.webp?r='+Date.now();}">
+                    <img src="/hero/slide-4.webp" onerror="this.onerror=null;this.src='/hero/slide-4.jpg'" alt="Arte 4" decoding="async">
                   </div>
                   <div class="carousel-slide">
-                    <img src="/artes/arte-5.webp?v=3" alt="Artes 5" decoding="async" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src='/artes/arte-5.webp?r='+Date.now();}">
+                    <img src="/hero/slide-5.webp" onerror="this.onerror=null;this.src='/hero/slide-5.jpg'" alt="Arte 5" decoding="async">
                   </div>
                   <div class="carousel-slide">
-                    <img src="/artes/arte-6.webp?v=3" alt="Artes 6" decoding="async" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src='/artes/arte-6.webp?r='+Date.now();}">
+                    <img src="/hero/slide-6.webp" onerror="this.onerror=null;this.src='/hero/slide-6.jpg'" alt="Arte 6" decoding="async">
                   </div>
                   <div class="carousel-slide">
-                    <img src="/artes/arte-7.webp?v=3" alt="Artes 7" decoding="async" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src='/artes/arte-7.webp?r='+Date.now();}">
+                    <img src="/hero/slide-7.webp" onerror="this.onerror=null;this.src='/hero/slide-7.jpg'" alt="Arte 7" decoding="async">
                   </div>
                   <div class="carousel-slide">
-                    <img src="/artes/arte-8.webp?v=3" alt="Artes 8" decoding="async" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src='/artes/arte-8.webp?r='+Date.now();}">
+                    <img src="/hero/slide-8.webp" onerror="this.onerror=null;this.src='/hero/slide-8.jpg'" alt="Arte 8" decoding="async">
                   </div>
                 </div>
               </div>
@@ -830,6 +830,7 @@
           }
           if (btnNext) btnNext.addEventListener('click', nextSlide);
           if (btnPrev) btnPrev.addEventListener('click', prevSlide);
+          updateCarousel();
 
           // Suporte a deslizar o dedo (swipe) em dispositivos móveis
           let touchStartX = 0;
