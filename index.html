@@ -22,10 +22,11 @@
     
     <!-- CSS original do site (preservando toda a identidade visual original) -->
     <link rel="stylesheet" href="/src/index.css">
-
+    <link rel="stylesheet" href="/fonts/inter.css">
+    
     <!-- CSS customizado para aplicar a identidade azul #2563EB e estilos específicos -->
     <style>
-      body { font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; }
+      body { font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif !important; }
       :root {
         --background: 210 40% 98% !important;
         --foreground: 222.2 84% 4.9% !important;
@@ -188,10 +189,8 @@
         border: none !important;
       }
     </style>
-    <!-- Fonte Inter carregada de forma não-bloqueante para acelerar FCP e Connect Rate -->
-    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+
+
   </head>
 
   <body>
@@ -228,28 +227,28 @@
               <div class="carousel-container">
                 <div class="carousel-slides">
                   <div class="carousel-slide">
-                    <img src="/hero/slide-1.webp" onerror="this.onerror=null;this.src='/hero/slide-1.jpg'" alt="Arte 1" fetchpriority="high" decoding="async">
+                    <img src="/hero/slide-1.webp" alt="Arte 1" fetchpriority="high" decoding="async">
                   </div>
                   <div class="carousel-slide">
-                    <img src="/hero/slide-2.webp" onerror="this.onerror=null;this.src='/hero/slide-2.jpg'" alt="Arte 2" decoding="async">
+                    <img src="/hero/slide-2.webp" alt="Arte 2" decoding="async">
                   </div>
                   <div class="carousel-slide">
-                    <img src="/hero/slide-3.webp" onerror="this.onerror=null;this.src='/hero/slide-3.jpg'" alt="Arte 3" decoding="async">
+                    <img src="/hero/slide-3.webp" alt="Arte 3" decoding="async">
                   </div>
                   <div class="carousel-slide">
-                    <img src="/hero/slide-4.webp" onerror="this.onerror=null;this.src='/hero/slide-4.jpg'" alt="Arte 4" decoding="async">
+                    <img src="/hero/slide-4.webp" alt="Arte 4" decoding="async">
                   </div>
                   <div class="carousel-slide">
-                    <img src="/hero/slide-5.webp" onerror="this.onerror=null;this.src='/hero/slide-5.jpg'" alt="Arte 5" decoding="async">
+                    <img src="/hero/slide-5.webp" alt="Arte 5" decoding="async">
                   </div>
                   <div class="carousel-slide">
-                    <img src="/hero/slide-6.webp" onerror="this.onerror=null;this.src='/hero/slide-6.jpg'" alt="Arte 6" decoding="async">
+                    <img src="/hero/slide-6.webp" alt="Arte 6" decoding="async">
                   </div>
                   <div class="carousel-slide">
-                    <img src="/hero/slide-7.webp" onerror="this.onerror=null;this.src='/hero/slide-7.jpg'" alt="Arte 7" decoding="async">
+                    <img src="/hero/slide-7.webp" alt="Arte 7" decoding="async">
                   </div>
                   <div class="carousel-slide">
-                    <img src="/hero/slide-8.webp" onerror="this.onerror=null;this.src='/hero/slide-8.jpg'" alt="Arte 8" decoding="async">
+                    <img src="/hero/slide-8.webp" alt="Arte 8" decoding="async">
                   </div>
                 </div>
               </div>
@@ -358,7 +357,7 @@
               </div>
               <div class="px-4 flex justify-center">
                 <div class="w-[56%] aspect-square bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/20 rounded-xl overflow-hidden flex items-center justify-center">
-                  <img src="/bonus/bonus-cristas.webp?v=3" alt="Artes Cristãs" class="w-full h-full object-cover" width="300" height="300" loading="lazy" decoding="async" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src='/bonus/bonus-cristas.webp?r='+Date.now();}">
+                  <img src="/bonus/bonus-cristas.webp" alt="Artes Cristãs" class="w-full h-full object-cover" width="300" height="300" loading="lazy" decoding="async">
                 </div>
               </div>
               <div class="px-4 pt-2">
@@ -380,7 +379,7 @@
               </div>
               <div class="px-4 flex justify-center">
                 <div class="w-[56%] aspect-square bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/20 rounded-xl overflow-hidden flex items-center justify-center">
-                  <img src="/bonus/bonus-gamer.webp?v=3" alt="Artes Gamer" class="w-full h-full object-cover" width="300" height="300" loading="lazy" decoding="async" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src='/bonus/bonus-gamer.webp?r='+Date.now();}">
+                  <img src="/bonus/bonus-gamer.webp" alt="Artes Gamer" class="w-full h-full object-cover" width="300" height="300" loading="lazy" decoding="async">
                 </div>
               </div>
               <div class="px-4 pt-2">
@@ -402,7 +401,7 @@
               </div>
               <div class="px-4 flex justify-center">
                 <div class="w-[56%] aspect-square bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/20 rounded-xl overflow-hidden flex items-center justify-center">
-                  <img src="/bonus/bonus-profissoes.webp?v=3" alt="Artes Profissões" class="w-full h-full object-cover" width="300" height="300" loading="lazy" decoding="async" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src='/bonus/bonus-profissoes.webp?r='+Date.now();}">
+                  <img src="/bonus/bonus-profissoes.webp" alt="Artes Profissões" class="w-full h-full object-cover" width="300" height="300" loading="lazy" decoding="async">
                 </div>
               </div>
               <div class="px-4 pt-2">
@@ -424,7 +423,7 @@
               </div>
               <div class="px-4 flex justify-center">
                 <div class="w-[56%] aspect-square bg-gradient-to-br from-primary/10 to-primary/5 border-2 border-primary/20 rounded-xl overflow-hidden flex items-center justify-center">
-                  <img src="/bonus/bonus-chatgpt.webp?v=3" alt="Como Criar Suas Próprias Artes com ChatGPT" class="w-full h-full object-cover" width="300" height="300" loading="lazy" decoding="async" onerror="if(!this.dataset.retried){this.dataset.retried='1';this.src='/bonus/bonus-chatgpt.webp?r='+Date.now();}">
+                  <img src="/bonus/bonus-chatgpt.webp" alt="Como Criar Suas Próprias Artes com ChatGPT" class="w-full h-full object-cover" width="300" height="300" loading="lazy" decoding="async">
                 </div>
               </div>
               <div class="px-4 pt-2">
